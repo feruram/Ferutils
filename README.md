@@ -2,14 +2,14 @@
 
 Wynncraft向けの装備・Ingredient・所有品・Lootrun支援ツールです。WindowsアプリとFabric MODを組み合わせて使用します。
 
-最新バージョン: **0.5.12**
+最新バージョン: **0.5.13**
 
 ## ダウンロード
 
 [最新のRelease](https://github.com/feruram/Mynntils/releases/latest)から次の2ファイルをダウンロードします。
 
-- `MynntilsApp-0.5.12-windows-x64.zip`
-- `mynntils-0.5.12.jar`
+- `MynntilsApp-0.5.13-windows-x64.zip`
+- `mynntils-0.5.13.jar`
 
 Python、PowerShell、Java開発環境、MODのビルドは不要です。
 
@@ -21,10 +21,10 @@ Python、PowerShell、Java開発環境、MODのビルドは不要です。
 
 ## 導入
 
-1. `MynntilsApp-0.5.12-windows-x64.zip`を展開します。
+1. `MynntilsApp-0.5.13-windows-x64.zip`を展開します。
 2. 展開したフォルダの`MynntilsApp.exe`を起動します。
 3. アプリの「設定」でWynnventory APIキーを入力し、「保存」を押します。
-4. `mynntils-0.5.12.jar`をMinecraftの`mods`フォルダへ入れます。古いMynntils jarは取り出します。
+4. `mynntils-0.5.13.jar`をMinecraftの`mods`フォルダへ入れます。古いMynntils jarは取り出します。
 5. Mynntils Appを起動してからMinecraftを起動します。
 6. アプリ上部の`MOD ● 接続中`を確認します。
 
@@ -53,6 +53,15 @@ APIキーは他人へ共有しないでください。
 - アプリとMODのバージョンを揃えます。
 - MinecraftとWynntilsの対応バージョンを確認します。
 - アプリ設定のItem Manager連携・Lootrun連携を有効にします。
+
+## 通信設定
+
+既定値は`127.0.0.1:8765`です。通常は変更不要です。
+
+- アプリ: 「設定」→「アプリ通信アドレス」「アプリ通信ポート」
+- MOD: Minecraftで`O`→「接続先」
+
+MODは既定でアプリの設定を自動取得します。MOD側で個別に指定する場合は「接続先: MODで手動設定」へ切り替え、アプリと同じアドレス・ポートを入力します。変更後はアプリとMinecraftを再起動してください。
 
 ## Wynncraftのルール
 
