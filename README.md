@@ -30,6 +30,13 @@ Python、PowerShell、Java開発環境、MODのビルドは不要です。
 
 Windowsから発行元の確認が表示された場合は、ファイル名が`MynntilsApp.exe`であることを確認してから「詳細情報」→「実行」を選択します。
 
+## 操作説明
+
+- [アプリ操作ガイド](docs/APP_GUIDE.md)
+- [MOD操作ガイド](docs/MOD_GUIDE.md)
+
+初めて使う場合は、アプリ操作ガイドの「基本の使い方」から確認してください。
+
 ## Wynnventory APIキー
 
 1. [Wynnventory API Key](https://www.wynnventory.com/developer/api-key)を開きます。
