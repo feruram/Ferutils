@@ -1,15 +1,15 @@
-# Mynntils Mod guide
+# Ferutils Mod guide
 
-Start Mynntils App before Minecraft. The mod cannot perform market analysis by itself.
+Start Ferutils App before Minecraft. The mod cannot perform market analysis by itself.
 
 ## Controls
 
-- `O`: open Mynntils settings
+- `O`: open Ferutils settings
 - Hover identified gear: analyze price, IDs, and owned copies
 - Hover an Ingredient: show its market price
 - Hold `Left Alt` while hovering gear: register it as owned
 
-Keys can be changed on the Mynntils settings screen.
+Keys can be changed on the Ferutils settings screen.
 
 ## Gear analysis
 
@@ -41,7 +41,7 @@ The mod sends the run state exposed by Wynntils, including:
 - Mission and Trial choice screens
 - Lootrun start and end
 
-Mynntils never clicks or selects a choice in Minecraft.
+Ferutils never clicks or selects a choice in Minecraft.
 
 ## Connection
 
@@ -54,7 +54,7 @@ The default is `127.0.0.1:8765`. Restart Minecraft after changing it.
 
 ## If the App is offline
 
-1. Start Mynntils App before Minecraft.
+1. Start Ferutils App before Minecraft.
 2. Use matching App and mod versions.
 3. Select `Use App settings` in the mod settings.
 4. Check that the App shows `MOD ● Connected`.

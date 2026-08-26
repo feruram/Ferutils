@@ -1,8 +1,8 @@
-# Mynntils
+# Ferutils
 
-Mynntils is a Windows companion app and Fabric mod for Wynncraft.
+Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.6.0**
+Latest version: **0.7.0**
 
 ## Features
 
@@ -23,14 +23,14 @@ Python, a Java development kit, and mod compilation are not required.
 
 ## Install
 
-1. Open the [latest release](https://github.com/feruram/Mynntils/releases/latest).
-2. Download `MynntilsApp-0.6.0-windows-x64.zip` and `mynntils-0.6.0.jar`.
-3. Extract the App ZIP and start `MynntilsApp.exe`.
-4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils jar first.
+1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
+2. Download `FerutilsApp-0.7.0-windows-x64.zip` and `ferutils-0.7.0.jar`.
+3. Extract the App ZIP and start `FerutilsApp.exe`.
+4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
 6. Confirm that the App shows `MOD ● Connected`.
 
-Windows may show an unknown-publisher warning because the App is not code-signed. Check that the file is named `MynntilsApp.exe`, then select `More info` and `Run anyway` if you trust this release.
+Windows may show an unknown-publisher warning because the App is not code-signed. Check that the file is named `FerutilsApp.exe`, then select `More info` and `Run anyway` if you trust this release.
 
 ## Guides
 
@@ -42,10 +42,10 @@ Windows may show an unknown-publisher warning because the App is not code-signed
 The key is required for gear and Ingredient market prices.
 
 1. Open [Wynnventory API Key](https://www.wynnventory.com/developer/api-key).
-2. Enter `Mynntils` as the project name, your Discord username, and a short description of your intended use.
+2. Enter `Ferutils` as the project name, your Discord username, and a short description of your intended use.
 3. Select `Generate Key`.
 4. Copy the displayed key. It is shown only once.
-5. Open `Settings` in Mynntils App.
+5. Open `Settings` in Ferutils App.
 6. Paste the key into `Wynnventory API key`, then save and restart the App.
 
 Do not share the key or include it in issues, logs, or screenshots.
@@ -61,17 +61,19 @@ Japanese and English are included.
 
 The App creates this editable file on first launch:
 
-`Documents\Mynntils\settings\lootrun-strategy.toml`
+`Documents\Ferutils\settings\lootrun-strategy.toml`
 
-It contains progress thresholds and score tables used by the Lootrun Advisor. Open it from `Settings` → `Open strategy`. Restart the App after replacing or editing the file.
+The complete latest strategy is bundled with the App and attached separately to each Release. Open the editable copy from `Settings` → `Open strategy`. Restart the App after replacing or editing it. Existing strategy files are not overwritten automatically.
+
+See [Strategy file format](docs/STRATEGY_FORMAT.md).
 
 ## Updating
 
 1. Close the App and Minecraft.
 2. Extract the new App ZIP.
-3. Replace the old Mynntils jar in the `mods` folder.
+3. Replace the old Mynntils or Ferutils jar in the `mods` folder.
 
-Owned items, settings, and the API key remain in `Documents\Mynntils` unless you selected another data folder.
+New installations use `Documents\Ferutils`. Existing Mynntils data folders and custom locations remain readable.
 
 ## Connection
 

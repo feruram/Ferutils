@@ -4,9 +4,9 @@ Reviewed: **August 9, 2026**
 
 ## Result
 
-No feature currently included in Mynntils was found to be explicitly prohibited by the official Wynncraft rules at the review date.
+No feature currently included in Ferutils was found to be explicitly prohibited by the official Wynncraft rules at the review date.
 
-Mynntils does not automate movement, combat, clicks, inventory transfers, or Trade Market actions.
+Ferutils does not automate movement, combat, clicks, inventory transfers, or Trade Market actions.
 
 ## Features not provided
 

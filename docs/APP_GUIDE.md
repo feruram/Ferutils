@@ -1,8 +1,8 @@
-# Mynntils App guide
+# Ferutils App guide
 
 ## Start
 
-1. Start `MynntilsApp.exe`.
+1. Start `FerutilsApp.exe`.
 2. Wait for `MOD ○ Waiting`, then launch Minecraft.
 3. Confirm that the status changes to `MOD ● Connected`.
 4. Select `Lootrun`, `Item Manager`, or `Settings`.
@@ -19,9 +19,11 @@ Use the correction controls when a value could not be read. Use `Resume` when jo
 
 The editable strategy file is stored at:
 
-`Documents\Mynntils\settings\lootrun-strategy.toml`
+`Documents\Ferutils\settings\lootrun-strategy.toml`
 
-Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it.
+The complete latest strategy is bundled with the App and attached separately to each Release. Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it.
+
+See [Strategy file format](STRATEGY_FORMAT.md).
 
 ## Item Manager
 
