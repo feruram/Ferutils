@@ -1,40 +1,40 @@
-# Wynncraft規約の確認結果
+# Wynncraft rules review
 
-確認日: **2026年8月9日**
+Reviewed: **August 9, 2026**
 
-## 結果
+## Result
 
-現在のMynntilsに、Wynncraft公式ルールで明示的に禁止されている機能は確認されませんでした。
+No feature currently included in Mynntils was found to be explicitly prohibited by the official Wynncraft rules at the review date.
 
-Mynntilsはゲーム操作を自動化しません。移動、戦闘、クリック、アイテム移動、Trade Market操作はプレイヤーが行います。
+Mynntils does not automate movement, combat, clicks, inventory transfers, or Trade Market actions.
 
-## 提供しない機能
+## Features not provided
 
-- Mob・Chest・Entity Radar、Tracer
-- X-Ray、Cave Map
-- Drop・Mob Spawn通知
-- AutoLoot、Auto Potion
-- インベントリの自動整理・自動移動
-- 自動クリック・移動・戦闘
-- Trade Market画面の自動走査
-- ゲーム内Bot
+- Mob, chest, or entity radar and tracers
+- X-ray or cave maps
+- Drop or mob-spawn alerts
+- Automatic looting or potion use
+- Automatic inventory organization or transfers
+- Automatic clicking, movement, or combat
+- Automatic Trade Market screen scanning
+- In-game bots
 
-## 機能別の確認
+## Feature review
 
-- 装備価格・所有品比較: 手動で表示した装備だけを分析
-- Ingredient価格: 手動ホバーまたはアプリ内検索で取得
-- 所有品登録: 登録キーを押しながらホバーした装備だけを登録
-- Lootrun連携: 進行情報を読み取り、操作は自動化しない
-- Lootrun推薦: 候補を表示し、選択はプレイヤーが行う
+- Gear prices and owned-item comparison: only analyzes gear manually displayed by the player.
+- Ingredient prices: requested by manual hover or an App search.
+- Owned-item registration: only registers gear hovered while the registration key is held.
+- Lootrun integration: reads progress without performing game actions.
+- Lootrun recommendations: displays advice; the player makes every selection.
 
-Wynnventoryは、プレイヤーが手動で表示したアイテムだけを扱う機能として、公式ルールページの許可例に記載されています。
+Wynnventory is listed on the official rules page as an allowed example when it only handles items manually displayed by the player.
 
-Lootrun推薦は個別の許可例に記載されていません。一般公開前のModerator確認を推奨します。
+Lootrun recommendations are not listed as a specific allowed example. Moderator confirmation is recommended before broad public promotion.
 
-## 公式資料
+## Official sources
 
 - [Wynncraft Game & Forum Rules](https://forums.wynncraft.com/threads/game-forum-rules.111874/)
 - [Wynncraft API v3 Documentation](https://docs.wynncraft.com/welcome)
 - [Wynnventory API Key](https://www.wynnventory.com/developer/api-key)
 
-最新の公式ルールとWynncraft Moderation Teamの回答を優先してください。
+Always follow the latest official rules and any answer from the Wynncraft Moderation Team.

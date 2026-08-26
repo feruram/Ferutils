@@ -1,75 +1,87 @@
 # Mynntils
 
-Wynncraft向けの装備・Ingredient・所有品・Lootrun支援ツールです。WindowsアプリとFabric MODを組み合わせて使用します。
+Mynntils is a Windows companion app and Fabric mod for Wynncraft.
 
-最新バージョン: **0.5.13**
+Latest version: **0.6.0**
 
-## ダウンロード
+## Features
 
-[最新のRelease](https://github.com/feruram/Mynntils/releases/latest)から次の2ファイルをダウンロードします。
+- Gear price and ID analysis
+- Role-based comparison with owned gear
+- Ingredient market prices
+- Lootrun tracking and recommendations
+- Automatic Minecraft-to-app synchronization
+- Japanese and English UI
 
-- `MynntilsApp-0.5.13-windows-x64.zip`
-- `mynntils-0.5.13.jar`
+## Requirements
 
-Python、PowerShell、Java開発環境、MODのビルドは不要です。
+- Windows 10 or 11 (64-bit)
+- Minecraft 1.21.11 with Fabric
+- Wynntils 4.2.6 or later
 
-## 前提環境
+Python, a Java development kit, and mod compilation are not required.
 
-- Windows 10または11（64ビット）
-- Minecraft 1.21.11のFabric環境
-- Fabric版Wynntils 4.2.6以降
+## Install
 
-## 導入
+1. Open the [latest release](https://github.com/feruram/Mynntils/releases/latest).
+2. Download `MynntilsApp-0.6.0-windows-x64.zip` and `mynntils-0.6.0.jar`.
+3. Extract the App ZIP and start `MynntilsApp.exe`.
+4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils jar first.
+5. Start the App, then launch Minecraft.
+6. Confirm that the App shows `MOD ● Connected`.
 
-1. `MynntilsApp-0.5.13-windows-x64.zip`を展開します。
-2. 展開したフォルダの`MynntilsApp.exe`を起動します。
-3. アプリの「設定」でWynnventory APIキーを入力し、「保存」を押します。
-4. `mynntils-0.5.13.jar`をMinecraftの`mods`フォルダへ入れます。古いMynntils jarは取り出します。
-5. Mynntils Appを起動してからMinecraftを起動します。
-6. アプリ上部の`MOD ● 接続中`を確認します。
+Windows may show an unknown-publisher warning because the App is not code-signed. Check that the file is named `MynntilsApp.exe`, then select `More info` and `Run anyway` if you trust this release.
 
-Windowsから発行元の確認が表示された場合は、ファイル名が`MynntilsApp.exe`であることを確認してから「詳細情報」→「実行」を選択します。
+## Guides
 
-## 操作説明
+- [App guide](docs/APP_GUIDE.md)
+- [Mod guide](docs/MOD_GUIDE.md)
 
-- [アプリ操作ガイド](docs/APP_GUIDE.md)
-- [MOD操作ガイド](docs/MOD_GUIDE.md)
+## Wynnventory API key
 
-初めて使う場合は、アプリ操作ガイドの「基本の使い方」から確認してください。
+The key is required for gear and Ingredient market prices.
 
-## Wynnventory APIキー
+1. Open [Wynnventory API Key](https://www.wynnventory.com/developer/api-key).
+2. Enter `Mynntils` as the project name, your Discord username, and a short description of your intended use.
+3. Select `Generate Key`.
+4. Copy the displayed key. It is shown only once.
+5. Open `Settings` in Mynntils App.
+6. Paste the key into `Wynnventory API key`, then save and restart the App.
 
-1. [Wynnventory API Key](https://www.wynnventory.com/developer/api-key)を開きます。
-2. 必要事項を入力して`Generate Key`を押します。
-3. 表示されたキーをアプリの「設定」→「Wynnventory APIキー」へ貼り付けます。
-4. 「保存」を押してアプリを再起動します。
+Do not share the key or include it in issues, logs, or screenshots.
 
-APIキーは他人へ共有しないでください。
+## Language
 
-## 更新
+- App: `Settings` → `Language`, then restart the App.
+- Mod: follows the Minecraft language setting.
 
-1. アプリとMinecraftを終了します。
-2. 新しいWindowsアプリZIPを展開します。
-3. `mods`フォルダの古いMynntils jarを新しいjarへ置き換えます。
+Japanese and English are included.
 
-所有品・設定・APIキーは`ドキュメント\Mynntils`に保存されるため、アプリを更新しても維持されます。
+## Lootrun strategy
 
-## 接続できない場合
+The App creates this editable file on first launch:
 
-- Mynntils AppをMinecraftより先に起動します。
-- アプリとMODのバージョンを揃えます。
-- MinecraftとWynntilsの対応バージョンを確認します。
-- アプリ設定のItem Manager連携・Lootrun連携を有効にします。
+`Documents\Mynntils\settings\lootrun-strategy.toml`
 
-## 通信設定
+It contains progress thresholds and score tables used by the Lootrun Advisor. Open it from `Settings` → `Open strategy`. Restart the App after replacing or editing the file.
 
-既定値は`127.0.0.1:8765`です。通常は変更不要です。
+## Updating
 
-- アプリ: 「設定」→「アプリ通信アドレス」「アプリ通信ポート」
-- MOD: Minecraftで`O`→「接続先」
+1. Close the App and Minecraft.
+2. Extract the new App ZIP.
+3. Replace the old Mynntils jar in the `mods` folder.
 
-MODは既定でアプリの設定を自動取得します。MOD側で個別に指定する場合は「接続先: MODで手動設定」へ切り替え、アプリと同じアドレス・ポートを入力します。変更後はアプリとMinecraftを再起動してください。
+Owned items, settings, and the API key remain in `Documents\Mynntils` unless you selected another data folder.
 
-## Wynncraftのルール
+## Connection
 
-[規約確認結果](COMPLIANCE.md)を確認してください。最新のWynncraft公式ルールを優先してください。
+The default address is `127.0.0.1:8765`. Normally no change is needed.
+
+- App: `Settings` → `App host` and `App port`
+- Mod: press `O` → connection mode
+
+Restart both Minecraft and the App after changing the connection settings.
+
+## Wynncraft rules
+
+Read the [rules review](COMPLIANCE.md) and the [official Wynncraft rules](https://forums.wynncraft.com/threads/game-forum-rules.111874/) before use.

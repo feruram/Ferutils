@@ -1,78 +1,62 @@
-# Mynntils MOD 操作ガイド
+# Mynntils Mod guide
 
-Mynntils MODは、Minecraft内のアイテムやLootrunの情報をMynntils Appと連携します。MOD単体では価格分析できないため、アプリを先に起動してください。
+Start Mynntils App before Minecraft. The mod cannot perform market analysis by itself.
 
-## 基本操作
+## Controls
 
-- `O`: Mynntils設定画面を開く
-- 識別済み装備をホバー: 価格・ID・所有品を分析
-- Ingredientをホバー: 市場価格を表示
-- `左Alt`を押しながら装備をホバー: 所有品へ登録
+- `O`: open Mynntils settings
+- Hover identified gear: analyze price, IDs, and owned copies
+- Hover an Ingredient: show its market price
+- Hold `Left Alt` while hovering gear: register it as owned
 
-登録キーと設定画面のキーは、`O`で開くMynntils設定画面から変更できます。
+Keys can be changed on the Mynntils settings screen.
 
-## 装備分析
+## Gear analysis
 
-1. インベントリや銀行で識別済み装備へカーソルを合わせます。
-2. `Mynntils: 分析中`または`Mynntils: 分析待ち`が表示されます。
-3. 分析完了後、参考価格、所有品との比較、登録判定が表示されます。
+The tooltip first shows `Analyzing` or `Queued`, then displays the result. Processing continues after the cursor moves away, and multiple hovered items are handled in order.
 
-分析中にカーソルを外しても処理は継続します。別の装備へ移動した場合は順番に分析され、結果はアプリの「Item Manager」→「Minecraft連携」に残ります。
+Identical item name, actual IDs, Reroll count, and Shiny state are not registered twice.
 
-## 所有品登録
+## Tooltip states
 
-1. `左Alt`を押します。
-2. 押したまま、登録する識別済み装備へカーソルを合わせます。
-3. `所有品登録済み`を確認します。
+- `Analyzing`: checking market and owned-item data
+- `Queued`: waiting for an earlier analysis
+- `Not owned`: no owned copy is available for comparison
+- `Upgrade`: better than the relevant owned copy
+- `Market candidate`: consider selling on the Trade Market
+- `Blacksmith candidate`: consider selling to the Blacksmith
+- `Owned`: identical stats are already registered
+- `UNTRADABLE`: market-price requests are skipped
+- `App offline`: the App is not connected
 
-同じ装備名、全ID実数値、Reroll回数、Shiny状態が一致する装備は重複登録されません。
+The line below an upgrade shows the ID used for the decision and its difference from the relevant owned copy.
 
-## ツールチップの表示
+## Lootrun link
 
-- `分析中`: アプリが現在分析中
-- `分析待ち`: 先に選んだ装備の分析完了待ち
-- `登録推奨`: 所有品への追加候補
-- `登録不要`: 同じ用途により優れた所有品あり
-- `所有品登録済み`: 同じステータスの装備を登録済み
-- `UNTRADABLE`: 取引不可のため市場価格の取得なし
-- `アプリ未接続`: Mynntils Appと接続できていない
+The mod sends the run state exposed by Wynntils, including:
 
-### 分析結果の色
+- Beacon choices and selections
+- Challenge completion and failure
+- Death
+- Mission and Trial choice screens
+- Lootrun start and end
 
-- 緑: 所有品への登録候補
-- 金: 市場での売却候補
-- 灰: Blacksmith候補
-- 黄: 手動確認、UNTRADABLE、固定ステータス品など
-- 赤: アプリとの接続エラー
+Mynntils never clicks or selects a choice in Minecraft.
 
-色だけで判断せず、次の行に表示される理由も確認してください。
+## Connection
 
-## Lootrun連携
+Press `O` and select a connection mode.
 
-Lootrun中は、取得できる範囲で次の情報をアプリへ送信します。
+- `Use App settings`: reads the App address and port. Use this normally.
+- `Manual MOD settings`: uses the address and port entered in Minecraft.
 
-- Beacon候補と選択結果
-- Challenge完了・失敗
-- 死亡
-- Lootrunの開始・終了
+The default is `127.0.0.1:8765`. Restart Minecraft after changing it.
 
-自動取得できないMissionやTrialは、アプリ側で入力します。
+## If the App is offline
 
-## 接続設定
+1. Start Mynntils App before Minecraft.
+2. Use matching App and mod versions.
+3. Select `Use App settings` in the mod settings.
+4. Check that the App shows `MOD ● Connected`.
 
-`O`でMynntils設定画面を開き、接続方法を選びます。
-
-- `接続先: アプリ設定を自動取得`: アプリのアドレスとポートを使用。通常はこちらを選択
-- `接続先: MODで手動設定`: MOD側でアドレスとポートを入力
-
-手動設定時は、アプリと同じ値を入力します。使用できるアドレスは`127.0.0.1`または`localhost`です。「保存して戻る」を押し、Minecraftを再起動します。
-
-## アプリ未接続の場合
-
-1. Mynntils Appが起動中か確認します。
-2. アプリとMODのバージョンが同じか確認します。
-3. MODの接続先を「アプリ設定を自動取得」に戻します。
-4. アプリを先に起動し、Minecraftを起動し直します。
-5. アプリ上部の`MOD ● 接続中`を確認します。
-
-アプリ側の操作は[アプリ操作ガイド](APP_GUIDE.md)を確認してください。
+See the [App guide](APP_GUIDE.md) for desktop controls.

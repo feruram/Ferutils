@@ -1,87 +1,68 @@
-# Mynntils App 操作ガイド
+# Mynntils App guide
 
-## 基本の使い方
+## Start
 
-1. `MynntilsApp.exe`を起動します。
-2. アプリ上部の表示が`MOD ○ 待機中`になったらMinecraftを起動します。
-3. `MOD ● 接続中`に変わることを確認します。
-4. 上部の`Lootrun`、`Item Manager`、`設定`から使う機能を選びます。
+1. Start `MynntilsApp.exe`.
+2. Wait for `MOD ○ Waiting`, then launch Minecraft.
+3. Confirm that the status changes to `MOD ● Connected`.
+4. Select `Lootrun`, `Item Manager`, or `Settings`.
 
 ## Lootrun
 
-Lootrun中のBeacon候補と現在の状態から、次の選択候補を表示します。
+The Advisor ranks the choices visible in Minecraft from the current run state.
 
-### MOD連携中
+While the mod is connected, Beacon choices, selections, Challenge results, Mission choices, and Trial choices are synchronized when Wynntils exposes them. The player still makes every game action.
 
-- Beacon候補、Challenge完了、失敗、死亡は取得できる範囲で自動反映されます。
-- `次の一手`に推奨されたBeaconと理由が表示されます。
-- MissionやTrialの候補が自動取得されない場合は、画面の候補選択から入力します。
+Any visible choice can be selected in the App. The recommendation has a larger action button, but it is not mandatory.
 
-### 手動操作
+Use the correction controls when a value could not be read. Use `Resume` when joining a run already in progress.
 
-- `画面に出ている候補`: Minecraftに表示されたBeaconを選択
-- `V`: VibrantのON/OFF
-- `推奨を選択して反映`: 推奨候補をアプリの状態へ反映
-- `Challenge 完了 +1`: Challenge完了を記録
-- `Challenge失敗 / 死亡`: Challenge中の失敗を記録
-- `Interlude死亡`: Interlude中の死亡を記録
-- `▼` `▲`: 残り時間や選択肢数などを補正
+The editable strategy file is stored at:
 
-途中から使う場合は、上部の「途中から」を開き、Minecraftの表示値を入力します。
+`Documents\Mynntils\settings\lootrun-strategy.toml`
+
+Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it.
 
 ## Item Manager
 
-### Minecraft連携
+Hover identified gear in Minecraft to view:
 
-Minecraftでホバーした装備の分析結果を表示します。左側の履歴から、過去の結果を選び直せます。
+- Reference price
+- Actual IDs and roll percentages
+- Number of owned copies
+- Role-based comparison with the relevant owned copy
+- Separate `Not owned` and `Upgrade` decisions
+- The IDs used for the comparison and their differences
 
-表示内容:
+Analysis continues after the cursor moves away. Earlier results remain in the Minecraft link history.
 
-- 参考価格
-- ID実数値とロール率
-- 所有数
-- 所有品との用途別比較
-- 登録推奨、登録不要、登録済み
+Hold `Left Alt` while hovering gear to register it. Identical stats are not registered twice. The registration key can be changed in the mod settings.
 
-### Ingredient価格
+The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export, duplicate cleanup, reload, and re-analysis.
 
-Ingredientの名前を検索し、1個あたりの価格とスタック合計を確認します。Minecraft上でIngredientをホバーした場合も履歴に追加されます。
+## Ingredients
 
-### アイテム分析
+Hover an Ingredient or search its name in the App to view its per-item price and stack total. Ingredients are not registered as owned gear.
 
-装備名を入力し、市場価格、価格に影響するID、個体価格の推定結果を確認します。
+## Settings
 
-### 個体判定
+Save and restart the App and Minecraft after changing connection settings.
 
-「アイテム分析」で装備を選び、ID実数値、Reroll回数、Shiny、メモを入力して所有品と比較します。通常はMinecraftで装備をホバーすれば自動判定されるため、手動入力が必要な場合に使用します。
+- `Language`: Auto, Japanese, or English
+- `Data folder`: owned items, backups, exports, settings, and logs
+- `Wynnventory API key`: market-price access
+- `App host` and `App port`: mod connection
+- `Item Manager link` and `Lootrun link`: enable or disable integration
+- `Open strategy`: opens the Lootrun strategy file
+- `Open folder`: opens the current data folder
+- `Back up`: creates an owned-item backup
 
-### 所有品
+## If data does not update
 
-- 名前、判定、価格、IDで絞り込み
-- 複数の所有品を選択してIDを比較
-- メモの保存
-- JSON・CSVへの出力
-- 完全一致する重複の整理
-- `所有品を再読込`: データベースの手動編集を反映
-- `価格・判定を更新`: 所有品の現在の判定を再計算
+1. Confirm that the top bar shows `MOD ● Connected`.
+2. Use matching App and mod versions.
+3. Check that Item Manager and Lootrun integration are enabled.
+4. Restart the App first, then Minecraft.
+5. Review `logs\app-errors.log` in the data folder.
 
-## 設定
-
-変更後は「保存」を押し、アプリとMinecraftを再起動します。
-
-- `データ保存先`: 所有品、バックアップ、設定の保存先
-- `Wynnventory APIキー`: 市場価格の取得に使用
-- `アプリ通信アドレス / ポート`: MODとの接続先
-- `Item Manager判定`: 市場価値や個体価格の判定基準
-- `Minecraft連携`: Item ManagerとLootrun連携のON/OFF、再確認間隔
-- `フォルダを開く`: 現在のデータ保存先を表示
-- `バックアップ`: 所有品データのバックアップを作成
-
-## 表示が更新されない場合
-
-1. アプリ上部が`MOD ● 接続中`か確認します。
-2. アプリとMODのバージョンが同じか確認します。
-3. 「設定」のItem Manager連携・Lootrun連携を確認します。
-4. アプリを終了し、アプリ→Minecraftの順で起動し直します。
-
-MOD側の表示は[MOD操作ガイド](MOD_GUIDE.md)を確認してください。
+See the [mod guide](MOD_GUIDE.md) for Minecraft controls.
