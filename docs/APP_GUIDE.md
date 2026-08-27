@@ -21,7 +21,7 @@ The editable strategy file is stored at:
 
 `Documents\Ferutils\settings\lootrun-strategy.toml`
 
-The complete latest strategy is bundled with the App and attached separately to each Release. Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it.
+The complete latest strategy is bundled with the App and attached separately to each Release. Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
 
 See [Strategy file format](STRATEGY_FORMAT.md).
 
