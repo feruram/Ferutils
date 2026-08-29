@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.8.0**
+Latest version: **0.8.1**
 
 ## Features
 
@@ -24,7 +24,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.8.0-windows-x64.zip` and `ferutils-0.8.0.jar`.
+2. Download `FerutilsApp-0.8.1-windows-x64.zip` and `ferutils-0.8.1.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
@@ -63,7 +63,7 @@ The App creates this editable file on first launch:
 
 `Documents\Ferutils\settings\lootrun-strategy.toml`
 
-The complete latest strategy is bundled with the App and attached separately to each Release. Open the editable copy from `Settings` → `Open strategy`. Restart the App after replacing or editing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
+The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file from `Settings` → `Lootrun strategy`. Restart the App after changing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
 
 See [Strategy file format](docs/STRATEGY_FORMAT.md).
 

@@ -21,7 +21,9 @@ The editable strategy file is stored at:
 
 `Documents\Ferutils\settings\lootrun-strategy.toml`
 
-The complete latest strategy is bundled with the App and attached separately to each Release. Open it with `Settings` → `Open strategy`. Restart the App after editing or replacing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
+The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file with `Settings` → `Lootrun strategy`. `Open strategy` opens the selected file. Restart the App after changing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
+
+After a Lootrun ends, select `Export run log` to save a JSON record. No file is created unless you select a save location.
 
 See [Strategy file format](STRATEGY_FORMAT.md).
 
@@ -55,7 +57,8 @@ Save and restart the App and Minecraft after changing connection settings.
 - `Wynnventory API key`: market-price access
 - `App host` and `App port`: mod connection
 - `Item Manager link` and `Lootrun link`: enable or disable integration
-- `Open strategy`: opens the Lootrun strategy file
+- `Lootrun strategy`: selects a Lootrun strategy TOML file
+- `Open strategy`: opens the selected strategy file
 - `Open folder`: opens the current data folder
 - `Back up`: creates an owned-item backup
 
