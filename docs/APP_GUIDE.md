@@ -15,7 +15,9 @@ While the mod is connected, Beacon choices, selections, Challenge results, Missi
 
 Any visible choice can be selected in the App. The recommendation has a larger action button, but it is not mandatory.
 
-After using the in-game Beacon Reroll link, select `Record Reroll` in the App. Offer refreshes from Wynntils do not consume Rerolls automatically.
+In-game Beacon Rerolls are detected automatically. Use `Reroll manual correction` only if the displayed count needs correction.
+
+Select a goal under `Run status`. The selected goal remains active for later runs and App restarts.
 
 Use the correction controls when a value could not be read. Use `Resume` when joining a run already in progress.
 
