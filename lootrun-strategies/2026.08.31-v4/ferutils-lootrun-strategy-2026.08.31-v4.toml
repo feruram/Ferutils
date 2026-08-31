@@ -1,0 +1,1662 @@
+schema_version = 3
+strategy_version = "2026.08.31-log-calibrated-v4"
+name = "Ferutils log-calibrated lootrun strategy — premium beacons before objectives"
+
+[defaults]
+beacon_score = 20
+mission_score = 25
+default_phase = "FARM"
+reroll_recommend = false
+
+[thresholds]
+opening_end = 10
+initial_limit = 12
+emergency_remaining = 4
+setup_min_limit = 35
+setup_min_choices = 5
+first_mission_fallback = 20
+grey_deadline = 40
+crimson_unlock = 20
+crimson_prepare_end = 55
+crimson_end = 70
+danger_time = 75
+red_low_time = 360
+red_next_low_time = 300
+keep_score = 150
+rainbow_reroll_start = 14
+rainbow_full_hunt_start = 18
+rainbow_early_reserve = 4
+rainbow_late_reserve = 2
+
+[messages]
+beacon_default = "現在状態で標準的な選択です"
+reroll_default = "現在の候補から選択"
+
+[stop]
+default_level = "続行"
+default_reason = "直ちに終了する条件はありません"
+
+[stop.levels]
+"続行" = 0
+"リセット検討" = 1
+"終了検討" = 2
+"短期終了ルート" = 2
+"最終Challenge" = 3
+"終了推奨" = 4
+
+[beacon_base]
+Rainbow = 75
+Orange = 70
+Aqua = 55
+Pink = 50
+Red = 30
+White = 80
+Green = 0
+Blue = 35
+Purple = 15
+"Dark Grey" = 25
+Yellow = 5
+Grey = 55
+Crimson = 75
+
+[opening_bonus]
+Orange = 80
+Aqua = 35
+Pink = 25
+Red = 10
+Blue = -15
+
+[mission_base]
+Porphyrophobia = 30
+Ostinato = 28
+"Jester's Trick" = 24
+"Interest Scheme" = 24
+"Beleza Pura" = 18
+Hoarder = 16
+"Opal Offering" = 14
+"Radiant Hunter" = 12
+"Knife Edge" = 8
+
+[trial_tier]
+S = 85
+A = 60
+B = 40
+C = 5
+"禁止" = -120
+
+[trial_base]
+Hubris = 85
+"Ultimate Sacrifice" = 85
+Chronotrigger = 85
+"Lights Out" = 85
+"Treasury Bill" = 60
+"Side Hustle" = 60
+"Adrenaline Junkie" = 60
+"Warmth Devourer" = 60
+"Gambling Beast" = 60
+"Dying Light" = 60
+"All In" = 40
+Monochromokopia = 5
+Imperitia = -120
+
+[combo_scoring]
+required = 45
+last_required = 75
+trial_link = 75
+complete_from_synergy = 55
+synergy = 35
+
+[state_defaults]
+completed_actions = []
+last_action = ""
+committed_route = ""
+fallback_route = ""
+challenge_type = ""
+estimated_travel_seconds = 0
+estimated_clear_seconds = 0
+failure_probability = 0.0
+
+[action_defaults.boon]
+score = 0
+category = ""
+potency = 0
+
+[action_defaults.beacon]
+power = 1
+vibrant = false
+effect_value = 0
+
+[action_defaults.mission]
+score = 0
+
+[action_defaults.trial]
+score = 0
+tier = ""
+
+[action_defaults.challenge]
+score = 0
+travel_seconds = 0
+clear_seconds = 0
+failure_probability = 0.0
+pulls = 0
+boxes = 0
+rerolls = 0
+sacrifices = 0
+
+[utility_weights.BALANCED]
+pulls = 1.0
+boxes = 1.0
+rerolls = 1.0
+sacrifices = 1.0
+time_cost = -0.1
+risk = -100.0
+
+[utility_weights.PULLS]
+pulls = 2.0
+time_cost = -0.1
+risk = -100.0
+
+[utility_weights.BOXES]
+boxes = 2.0
+time_cost = -0.1
+risk = -100.0
+
+[utility_weights.REROLLS]
+rerolls = 2.0
+time_cost = -0.1
+risk = -100.0
+
+[utility_weights.SACRIFICES]
+sacrifices = 2.0
+time_cost = -0.1
+risk = -100.0
+
+[utility_weights.SHORT]
+time_cost = -0.3
+risk = -120.0
+
+[goal_bonus.PULLS]
+Purple = 20
+"Dark Grey" = 15
+Crimson = 10
+
+[goal_bonus.BOXES]
+Yellow = 55
+Aqua = 10
+
+[goal_bonus.REROLLS]
+Pink = 40
+Crimson = 25
+Green = 10
+
+[goal_bonus.SACRIFICES]
+Crimson = 35
+Rainbow = 15
+
+[goal_bonus.SHORT]
+Pink = 15
+Purple = 20
+"Dark Grey" = 20
+Red = -45
+White = -55
+Rainbow = -30
+
+[goal_mission_bonus.BOXES]
+"Jester's Trick" = 22
+"Interest Scheme" = 22
+Materialism = 22
+Hoarder = 22
+"Beleza Pura" = 22
+
+[goal_mission_bonus.PULLS]
+Porphyrophobia = 22
+Ostinato = 22
+"Opal Offering" = 22
+Chronokinesis = 22
+"Knife Edge" = 22
+
+[goal_mission_bonus.REROLLS]
+"High Roller" = 22
+"Backup Beat" = 22
+Optimism = 22
+"King's Court" = 22
+
+[goal_mission_bonus.SACRIFICES]
+Redemption = 22
+"King's Court" = 22
+
+[goal_mission_bonus.SHORT]
+"High Roller" = 22
+Redemption = 22
+"Knife Edge" = 22
+
+[goal_trial_bonus.PULLS]
+Chronotrigger = 25
+"Lights Out" = 25
+"Treasury Bill" = 25
+
+[goal_trial_bonus.REROLLS]
+"Gambling Beast" = 25
+"Side Hustle" = 25
+"Adrenaline Junkie" = 25
+"All In" = 25
+
+[goal_trial_bonus.SACRIFICES]
+"Ultimate Sacrifice" = 25
+Hubris = 25
+"Dying Light" = 25
+"Warmth Devourer" = 25
+
+[goal_trial_bonus.SHORT]
+"Gambling Beast" = 25
+"Treasury Bill" = 25
+"Lights Out" = 25
+
+[[phase_rules]]
+id = "phase_exit"
+phase = "EXIT"
+when = "remaining <= 1 or risk == 'DANGER' or timer <= 90"
+
+[[phase_rules]]
+id = "phase_opening"
+phase = "OPENING"
+when = "completed < opening_end and not rainbow_active"
+
+[[phase_rules]]
+id = "phase_extend"
+phase = "EXTEND"
+when = "limit < setup_min_limit or choices < 4"
+
+[[phase_rules]]
+id = "phase_missions"
+phase = "MISSIONS"
+when = "mission_count < mission_slots and completed < 50"
+
+[[phase_rules]]
+id = "phase_trials"
+phase = "TRIALS"
+when = "completed_trial_count < trial_slots and completed < crimson_end"
+
+[[phase_rules]]
+id = "phase_farm"
+phase = "FARM"
+when = "true"
+
+[[setup_rules]]
+id = "setup_red_emergency"
+when = "limit <= initial_limit and remaining <= emergency_remaining"
+text = "【Red最優先】初期上限のまま残り{remaining} Challengeです。Redで即時延長します"
+
+[[setup_rules]]
+id = "setup_red_target"
+when = "limit <= initial_limit and remaining > emergency_remaining"
+text = "【Challenge 10までのRed確保目標】Rainbow後の強化Whiteを狙うため、先にRedで初期上限を延長します"
+
+[[setup_rules]]
+id = "setup_white_hold"
+when = "limit <= initial_limit"
+text = "Whiteは通常1回のみです。緊急時を除き、未強化Whiteは避け、Rainbow → Aqua → Whiteを狙います"
+
+[[setup_rules]]
+id = "setup_extended"
+when = "limit > initial_limit"
+text = "【延長確保済み】Challenge上限 {limit}。Whiteで延長できていればRed未取得でも問題ありません"
+
+[[setup_rules]]
+id = "setup_first_mission_waiting"
+when = "mission_count == 0 and pending_mission != '' and not (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices) and completed < first_mission_fallback"
+text = "【初回Missionは保留寄り】固定締切はありません。セットアップ未完了のため、Rainbow・強化White・Beacon 5択を先に整えます"
+
+[[setup_rules]]
+id = "setup_first_mission_ready"
+when = "mission_count == 0 and pending_mission != '' and rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices"
+text = "【初回Mission完了候補】Rainbow・強化White・Beacon 5択が揃っています"
+
+[[setup_rules]]
+id = "setup_first_mission_fallback"
+when = "mission_count == 0 and pending_mission != '' and completed >= first_mission_fallback and not (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)"
+text = "【初回Mission回収を優先】後続Greyが遅れるためObjective完了へ切り替えます"
+
+[[setup_rules]]
+id = "setup_first_mission_offer"
+when = "mission_count == 0 and pending_mission == ''"
+text = "【初回Mission】Challenge 4後に提示。選択後も延長セットアップまでObjective完了を遅らせます"
+
+[[setup_rules]]
+id = "setup_later_mission_wait"
+when = "mission_count > 0 and pending_mission != '' and completed < first_mission_fallback and not (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)"
+text = "【Mission Objectiveは保留寄り】序盤セットアップ未完了です"
+
+[[setup_rules]]
+id = "setup_grey_before_deadline"
+when = "mission_count > 0 and grey_left > 0 and completed < grey_deadline"
+text = "【Grey回収】残り {grey_left} 回。Challenge {grey_deadline}前の取得を目指します"
+
+[[setup_rules]]
+id = "setup_grey_late"
+when = "mission_count > 0 and grey_left > 0 and completed >= grey_deadline"
+text = "【Grey回収遅延】残り {grey_left} 回を優先します"
+
+[[stop_rules]]
+id = "stop_early_reset"
+when = "completed < 4 and protected_value and choices <= 3 and orange_count == 0"
+level = "リセット検討"
+reason = "第4Challenge開始前なら保持物を失わずに失敗終了できます"
+
+[[stop_rules]]
+id = "stop_danger_curses_setup"
+when = "risk == 'DANGER' and curses >= 8 and (mission_count < 3 or completed_trial_count + (1 if active_trial != '' else 0) < 2)"
+level = "終了検討"
+reason = "危険ですが、少なくとも3 Mission・2 Trialの構築前なので即時終了はしません"
+
+[[stop_rules]]
+id = "stop_danger_curses"
+when = "risk == 'DANGER' and curses >= 8 and mission_count >= 3 and completed_trial_count + (1 if active_trial != '' else 0) >= 2"
+level = "終了推奨"
+reason = "3 Mission・2 Trialを確認済みで、危険度が高くCurseも8以上です"
+
+[[stop_rules]]
+id = "stop_low_time"
+when = "timer <= danger_time and active_trial != 'Side Hustle'"
+level = "終了検討"
+reason = "残り時間が{timer}秒です。Greenなしの移動は高リスクです"
+
+[[stop_rules]]
+id = "stop_low_time_danger"
+when = "timer <= danger_time and active_trial != 'Side Hustle' and risk != 'SAFE' and mission_count >= 3 and completed_trial_count + (1 if active_trial != '' else 0) >= 2"
+level = "終了推奨"
+reason = "時間と危険度の両方が危険域です"
+
+[[stop_rules]]
+id = "stop_critical_time"
+when = "timer <= 20 and active_trial != 'Side Hustle'"
+level = "終了推奨"
+reason = "残り20秒以下でGreen救済が間に合わない可能性が高いため終了します"
+
+[[stop_rules]]
+id = "stop_final"
+when = "remaining <= 1"
+level = "最終Challenge"
+reason = "最終Challengeです。Mission・Trial完了や一部Beaconは機能しません"
+
+[[stop_rules]]
+id = "stop_no_combo"
+when = "mission_count >= 3 and completed_trial_count + (1 if active_trial != '' else 0) >= 2 and combo_count == 0 and completed >= 55"
+level = "短期終了ルート"
+reason = "3 Mission・2 Trial確認後も主要Comboがないため、短期終了を検討します"
+
+[[routes]]
+id = "Lights Out"
+required_trials = ["Lights Out"]
+synergy_missions = ["Inner Peace", "Porphyrophobia"]
+
+[[routes]]
+id = "Chronotrigger"
+required_missions = ["Porphyrophobia"]
+required_trials = ["Chronotrigger"]
+synergy_missions = ["Beleza Pura", "Radiant Hunter", "Route Indigo", "Chronokinesis", "Complete Chaos"]
+
+[[routes]]
+id = "Ostinato"
+required_missions = ["Ostinato"]
+synergy_missions = ["Interest Scheme", "Hoarder", "Jester's Trick"]
+
+[[routes]]
+id = "Jester's Scheme"
+required_missions = ["Interest Scheme", "Jester's Trick"]
+synergy_missions = ["Ostinato", "Beleza Pura", "Materialism", "Hoarder"]
+
+[[routes]]
+id = "Opal Offering"
+required_missions = ["Opal Offering"]
+synergy_missions = ["Sacrificial Ritual", "Equilibrium", "Route Indigo", "Optimism"]
+
+[[routes]]
+id = "Knife Thrill"
+required_missions = ["Knife Edge", "Thrill Seeker"]
+
+[[routes]]
+id = "Gambling Beast"
+required_trials = ["Gambling Beast"]
+synergy_missions = ["Redemption", "High Roller", "Optimism", "Backup Beat"]
+
+[[routes]]
+id = "Dying Light + All In"
+required_trials = ["Dying Light", "All In"]
+
+[[policy_rules]]
+id = "route_progress"
+scope = ["mission", "trial", "boon", "challenge"]
+when = "route_progress_gain > 0 and route_preexisting_progress > 0"
+add = "45 * route_progress_gain"
+reason = "既存ルート {action_required_routes} を前進させます"
+
+[[policy_rules]]
+id = "route_completion"
+scope = ["mission", "trial", "boon", "challenge"]
+when = "route_completion_gain > 0 and route_preexisting_progress > 0"
+add = "65 * route_completion_gain"
+reason = "既存ルート {action_required_routes} を完成させます"
+
+[[policy_rules]]
+id = "route_synergy"
+scope = ["mission", "trial", "boon", "challenge"]
+when = "route_synergy_count > 0 and completed_route_synergy_count == 0"
+add = "25 * route_synergy_count"
+reason = "構築中のルートと相乗します"
+
+[[policy_rules]]
+id = "completed_route_synergy"
+scope = ["mission", "trial", "boon", "challenge"]
+when = "completed_route_synergy_count > 0"
+add = "80 * completed_route_synergy_count"
+reason = "完成済みルートと直接相乗します"
+
+[[policy_rules]]
+id = "route_conflict"
+scope = ["mission", "trial", "boon", "challenge"]
+when = "route_conflict_count > 0"
+add = "-120 * route_conflict_count"
+warning = "確定ルートと競合します"
+
+[[policy_rules]]
+id = "challenge_expected_value"
+scope = "challenge"
+utility = { pulls = "action_pulls", boxes = "action_boxes", rerolls = "action_rerolls", sacrifices = "action_sacrifices", time_cost = "action_travel_seconds + action_clear_seconds", risk = "action_failure_probability" }
+
+[[tie_breakers]]
+scope = "*"
+expression = "final_score"
+direction = "desc"
+priority = 0
+
+[[tie_breakers]]
+scope = "*"
+expression = "route_completion_gain"
+direction = "desc"
+priority = 10
+
+[[tie_breakers]]
+scope = "*"
+expression = "action_index"
+direction = "asc"
+priority = 100
+
+[[beacon_rules]]
+id = "beacon_rainbow_active"
+choices = ["Rainbow"]
+when = "rainbow_active"
+add = -55
+reason = "Rainbowの残り効果を延長します"
+
+[[beacon_rules]]
+id = "beacon_rainbow_setup"
+choices = ["Rainbow"]
+when = "not rainbow_active"
+reason = "全Beacon強化はセットアップの中核です"
+
+[[beacon_rules]]
+id = "beacon_rainbow_unclaimed_priority"
+choices = ["Rainbow"]
+when = "not rainbow_active"
+add = 40
+reason = "未取得Rainbowを確定し、将来のCrimsonを含む複数Beaconを継続的に強化します"
+
+[[beacon_rules]]
+id = "beacon_rainbow_knife"
+choices = ["Rainbow"]
+when = '''"Knife Edge" in missions'''
+add = -35
+warning = "Knife Thrillは低Power Redを好むため相性が悪いです"
+
+[[beacon_rules]]
+id = "beacon_orange_full"
+choices = ["Orange"]
+when = "choices >= 5"
+add = -40
+
+[[beacon_rules]]
+id = "beacon_orange_phase"
+choices = ["Orange"]
+when = "phase in ['OPENING', 'EXTEND']"
+add = 25
+reason = "選択肢を増やし重要Beaconを確保しやすくします"
+
+[[beacon_rules]]
+id = "beacon_orange_expiring"
+choices = ["Orange"]
+when = "orange_count > 0 and orange_max <= 4 and choices <= 4"
+add = 100
+reason = "Orange終了直前に提示数を維持し、次の重要Beaconを探せる状態を保ちます"
+
+[[beacon_rules]]
+id = "beacon_aqua_saturated"
+choices = ["Aqua"]
+when = "aqua_stacks >= 2"
+add = -30
+warning = "Power上限に近く、追加Stackの価値は低下します"
+
+[[beacon_rules]]
+id = "beacon_aqua_crimson_gate"
+choices = ["Aqua"]
+when = "completed in [18, 19] and (rainbow_active or 'Rainbow' not in offered)"
+add = 30
+reason = "Challenge 20以降に解禁されるCrimsonへ強化を準備できます"
+
+[[beacon_rules]]
+id = "beacon_aqua_prepare_crimson"
+choices = ["Aqua"]
+when = "crimson_unlock <= completed < crimson_prepare_end and crimson_taken < trial_slots and active_trial == '' and crimson_skips < 2 and choices >= 4 and rerolls > 0 and timer >= 450 and red_remaining == 0 and completed not in [18, 19] and 'Crimson' not in offered and (rainbow_active or 'Rainbow' not in offered)"
+add = 70
+reason = "次のCrimsonをPower 3以上にしてTrial選択肢を増やします"
+
+[[beacon_rules]]
+id = "beacon_aqua_general"
+choices = ["Aqua"]
+when = "true"
+reason = "次の重要Beaconを強化できます"
+
+[[beacon_rules]]
+id = "beacon_aqua_extension_setup"
+choices = ["Aqua"]
+when = "aqua_stacks == 0 and limit < 100 and remaining <= 8 and 'Red' not in offered and 'White' not in offered"
+add = 50
+reason = "延長Beaconが未提示のため、次のRed・Whiteを高Powerで取る準備をします"
+
+[[beacon_rules]]
+id = "beacon_aqua_extension_setup_urgent"
+choices = ["Aqua"]
+when = "aqua_stacks == 0 and limit < 100 and remaining <= 5 and 'Red' not in offered and 'White' not in offered"
+add = 35
+reason = "延長Beaconを引く猶予が少ないため、Mission報酬より延長準備を優先します"
+
+[[beacon_rules]]
+id = "beacon_aqua_orange_expiring"
+choices = ["Aqua"]
+when = "aqua_stacks == 0 and limit < 100 and remaining <= 12 and orange_count > 0 and orange_max <= 3 and 'Red' not in offered and 'White' not in offered"
+add = 75
+reason = "Orange終了前にAquaを確保し、少ない提示数でも次の延長Beaconを強化します"
+
+[[beacon_rules]]
+id = "beacon_aqua_flying_cycle"
+choices = ["Aqua"]
+when = '''aqua_stacks == 0 and "Interest Scheme" in missions and "Jester's Trick" in missions'''
+add = 55
+reason = "Jester's SchemeのAqua→Yellow循環を開始します"
+
+[[beacon_rules]]
+id = "beacon_aqua_gambling_green"
+choices = ["Aqua"]
+when = "aqua_stacks == 0 and 'Gambling Beast' in completed_trials"
+add = 90
+reason = "Gambling Beast用の強化Greenを準備します"
+
+[[beacon_rules]]
+id = "beacon_aqua_early_duplicate"
+choices = ["Aqua"]
+when = "completed < opening_end and aqua_stacks > 0"
+add = -90
+warning = "保持中Aquaの使用先を先に探します"
+
+[[beacon_rules]]
+id = "beacon_pink_stocked"
+choices = ["Pink"]
+when = "rerolls > 2"
+add = -32
+
+[[beacon_rules]]
+id = "beacon_pink_choices"
+choices = ["Pink"]
+when = "choices >= 4"
+add = 10
+reason = "Rerollを確保して重要Beaconを探せます"
+
+[[beacon_rules]]
+id = "beacon_red_urgent"
+choices = ["Red"]
+when = "remaining < 4"
+add = 120
+reason = "残り3 Challenge以下ではMission進行よりラン継続を優先します"
+
+[[beacon_rules]]
+id = "beacon_red_reserve"
+choices = ["Red"]
+when = '''limit < 100 and 4 <= remaining <= 8 and timer >= 450 and "Knife Edge" not in missions and "Thrill Seeker" not in missions'''
+add = 90
+reason = "次の提示不発に備え、残Challenge 8以内で延長を確保します"
+
+[[beacon_rules]]
+id = "beacon_red_reserve_low_time"
+choices = ["Red"]
+when = '''limit < 100 and 4 <= remaining <= 8 and timer < 450 and "Knife Edge" not in missions'''
+add = -80
+warning = "Red延長分は自然時間を得ないため、先にGreenでTimerを確保します"
+
+[[beacon_rules]]
+id = "beacon_red_long_route"
+choices = ["Red"]
+when = '''limit < 100 and completed >= 50 and remaining <= 12 and combo_count > 0 and "Knife Edge" not in missions'''
+add = 45
+reason = "成立した長期ルートをChallenge 100へ延長します"
+
+[[beacon_rules]]
+id = "beacon_red_extended"
+choices = ["Red"]
+when = "remaining >= 4 and limit >= setup_min_limit"
+add = -25
+
+[[beacon_rules]]
+id = "beacon_red_initial"
+choices = ["Red"]
+when = "limit <= initial_limit"
+reason = "初期上限を延長し、Rainbow → Aqua → Whiteの余裕を作ります"
+
+[[beacon_rules]]
+id = "beacon_red_initial_emergency"
+choices = ["Red"]
+when = "limit <= initial_limit and remaining <= emergency_remaining"
+add = 140
+reason = "残Challengeが少ないため最優先で延長します"
+
+[[beacon_rules]]
+id = "beacon_red_low_time"
+choices = ["Red"]
+when = "timer < red_low_time"
+add = -35
+warning = "Red Challenge中は通常の時間獲得がありません"
+
+[[beacon_rules]]
+id = "beacon_red_combo"
+choices = ["Red"]
+when = '''"Knife Edge" in missions or "Thrill Seeker" in missions'''
+add = 35
+reason = "Knife・Thrill戦略と相乗します"
+
+[[beacon_rules]]
+id = "beacon_red_general"
+choices = ["Red"]
+when = "true"
+reason = "残Challengeを延長します"
+
+[[beacon_rules]]
+id = "beacon_white_late"
+choices = ["White"]
+when = "limit >= 50"
+add = -45
+
+[[beacon_rules]]
+id = "beacon_white_value"
+choices = ["White"]
+when = "true"
+reason = "Power {power}でChallengeを{effect_value}追加できます"
+
+[[beacon_rules]]
+id = "beacon_white_initial_emergency"
+choices = ["White"]
+when = "limit <= initial_limit and remaining <= emergency_remaining"
+add = 140
+reason = "未延長のまま残Challengeが少ないため即時延長します"
+
+[[beacon_rules]]
+id = "beacon_white_unboosted"
+choices = ["White"]
+when = "limit <= initial_limit and remaining > emergency_remaining and power == 1"
+add = -125
+warning = "Whiteは通常1回のみです。Rainbow＋Aqua後まで温存します"
+
+[[beacon_rules]]
+id = "beacon_white_aqua_only"
+choices = ["White"]
+when = "limit <= initial_limit and remaining > emergency_remaining and power == 2 and not rainbow_active"
+add = -55
+warning = "Rainbow＋AquaのPower 3以上を優先します"
+
+[[beacon_rules]]
+id = "beacon_white_power_three"
+choices = ["White"]
+when = "power >= 3"
+add = 65
+reason = "一回限りのWhiteを十分なPower 3以上で確保します"
+
+[[beacon_rules]]
+id = "beacon_white_before_rainbow"
+choices = ["White"]
+when = "limit > initial_limit and power < 3 and not rainbow_active and completed < 15 and remaining > emergency_remaining"
+add = -65
+warning = "Rainbow探索前のWhiteは温存します"
+
+[[beacon_rules]]
+id = "beacon_white_knife"
+choices = ["White"]
+when = '''"Knife Edge" in missions'''
+add = -45
+warning = "残Challenge増加でKnife EdgeのPullが減ります"
+
+[[beacon_rules]]
+id = "beacon_green_before_offered_red"
+choices = ["Green"]
+when = "red_remaining == 0 and 'Red' in offered and limit < 100 and remaining <= 8 and timer < 600"
+add = 150
+reason = "提示済みRedを取る前に、無時間Challenge分のTimerを確保します"
+
+[[beacon_rules]]
+id = "beacon_green_red_critical"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining > 0 and timer <= 300"
+add = 125
+reason = "Red Challenge中は完了時に時間が増えないため確保します"
+
+[[beacon_rules]]
+id = "beacon_green_red_low"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining > 0 and 300 < timer < 450"
+add = 90
+reason = "Red Challenge中は完了時に時間が増えないため確保します"
+
+[[beacon_rules]]
+id = "beacon_green_red_medium"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining > 0 and 450 <= timer < 600"
+add = 45
+reason = "Red Challenge中は完了時に時間が増えないため確保します"
+
+[[beacon_rules]]
+id = "beacon_green_red_safe"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining > 0 and timer >= 600"
+add = 5
+reason = "Red Challenge中は完了時に時間が増えないため確保します"
+
+[[beacon_rules]]
+id = "beacon_green_before_red_critical"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and 'Red' not in offered and limit < 100 and 5 <= remaining <= 7 and timer <= 300"
+add = 110
+reason = "Redを次に取る可能性が高いため、先に時間を確保します"
+
+[[beacon_rules]]
+id = "beacon_green_before_red_low"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and 'Red' not in offered and limit < 100 and 5 <= remaining <= 7 and 300 < timer < 450"
+add = 65
+reason = "Redを次に取る可能性が高いため、先に時間を確保します"
+
+[[beacon_rules]]
+id = "beacon_green_before_red_safe"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and 'Red' not in offered and limit < 100 and 5 <= remaining <= 7 and timer >= 450"
+add = 25
+reason = "Redを次に取る可能性が高いため、先に時間を確保します"
+
+[[beacon_rules]]
+id = "beacon_green_emergency"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and not (limit < 100 and 5 <= remaining <= 7 and 'Red' not in offered) and timer <= danger_time"
+add = 145
+reason = "次の移動が危険な残り時間です"
+
+[[beacon_rules]]
+id = "beacon_green_normal_low"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and not (limit < 100 and 5 <= remaining <= 7 and 'Red' not in offered) and danger_time < timer <= 180"
+add = 20
+warning = "Red効果外ではChallenge完了時の時間回復を見込めます"
+
+[[beacon_rules]]
+id = "beacon_green_normal_medium"
+choices = ["Green"]
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and red_remaining == 0 and not (limit < 100 and 5 <= remaining <= 7 and 'Red' not in offered) and 180 < timer < 300"
+add = 5
+
+[[beacon_rules]]
+id = "beacon_green_backup"
+choices = ["Green"]
+when = '''"Backup Beat" in missions'''
+add = 35
+reason = "Backup Beatの時間Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_green_chronotrigger"
+choices = ["Green"]
+when = "active_trial == 'Chronotrigger' or 'Chronotrigger' in completed_trials"
+add = 55
+reason = "ChronotriggerのCurse洗浄とPull倍率に使えます"
+
+[[beacon_rules]]
+id = "beacon_green_gambling_stacked"
+choices = ["Green"]
+when = "'Gambling Beast' in completed_trials and aqua_stacks > 0"
+add = 160
+reason = "Aqua強化GreenでGambling BeastのTimerを確保します"
+
+[[beacon_rules]]
+id = "beacon_green_gambling_plain"
+choices = ["Green"]
+when = "'Gambling Beast' in completed_trials and aqua_stacks == 0"
+add = 45
+reason = "Gambling Beastの増加する時間消費を補います"
+
+[[beacon_rules]]
+id = "beacon_green_side_hustle"
+choices = ["Green"]
+when = "active_trial == 'Side Hustle'"
+add = -120
+warning = "Side Hustle中はTimer 75秒制限を超えられません"
+
+[[beacon_rules]]
+id = "beacon_green_thrill"
+choices = ["Green"]
+when = '''"Thrill Seeker" in missions'''
+add = -25
+warning = "Thrill SeekerのPull段階をリセットします"
+
+[[beacon_rules]]
+id = "beacon_blue_danger"
+choices = ["Blue"]
+when = "risk == 'DANGER'"
+add = 60
+reason = "ユーザー設定の危険度が高いため、Boon補強を優先します"
+
+[[beacon_rules]]
+id = "beacon_blue_high_power"
+choices = ["Blue"]
+when = "power >= 3"
+add = 45
+reason = "Power 3以上ならBoon取得効率が十分に高いです"
+
+[[beacon_rules]]
+id = "beacon_blue_low_boon_power_two"
+choices = ["Blue"]
+when = "power == 2 and boon_potency < 300"
+add = 35
+reason = "Boonが少ない状態のPower 2なので安定化効率があります"
+
+[[beacon_rules]]
+id = "beacon_blue_saturated"
+choices = ["Blue"]
+when = "boon_count >= 4 and boon_potency >= 800"
+add = -50
+
+[[beacon_rules]]
+id = "beacon_blue_ostinato"
+choices = ["Blue"]
+when = "'Ostinato' in missions"
+add = 55
+reason = "Ostinatoの重複Boon Pullを進めます"
+
+[[beacon_rules]]
+id = "beacon_blue_ostinato_yellow_variant"
+choices = ["Blue"]
+when = '''"Ostinato" in missions and "Interest Scheme" in missions and "Hoarder" in missions'''
+add = -90
+warning = "Interest Scheme＋Hoarder型ではYellow循環を優先します"
+
+[[beacon_rules]]
+id = "beacon_blue_dying_light"
+choices = ["Blue"]
+when = "active_trial == 'Dying Light'"
+add = 85
+reason = "Dying Light開始後に必要な800% Boon Potencyを進めます"
+
+[[beacon_rules]]
+id = "beacon_blue_opal"
+choices = ["Blue"]
+when = '''"Opal Offering" in missions and completed < 90'''
+add = 40
+reason = "Opal後半変換用のBoonを蓄えます"
+
+[[beacon_rules]]
+id = "beacon_blue_value"
+choices = ["Blue"]
+when = "true"
+reason = "Power {power}で{effect_value}% PotencyのBoonを得ます"
+
+[[beacon_rules]]
+id = "beacon_purple_porphy"
+choices = ["Purple"]
+when = "'Porphyrophobia' in missions"
+add = 70
+reason = "PorphyrophobiaでPullが倍化します"
+
+[[beacon_rules]]
+id = "beacon_purple_opal"
+choices = ["Purple"]
+when = '''"Opal Offering" in missions and completed >= 90 and boon_count > 0'''
+add = 45
+reason = "Challenge 90以降の変換段階でBoonをPullへ変換します"
+
+[[beacon_rules]]
+id = "beacon_purple_opal_early"
+choices = ["Purple"]
+when = '''"Opal Offering" in missions and completed < 90'''
+add = -60
+warning = "Opal Offeringの蓄積段階なのでChallenge 90頃までBoonを温存します"
+
+[[beacon_rules]]
+id = "beacon_purple_lights_out"
+choices = ["Purple"]
+when = "active_trial == 'Lights Out'"
+add = 45
+reason = "Lights OutのCurse蓄積を進めます"
+
+[[beacon_rules]]
+id = "beacon_purple_danger"
+choices = ["Purple"]
+when = "risk == 'DANGER'"
+add = -65
+warning = "現在の危険度ではCurse追加が危険です"
+
+[[beacon_rules]]
+id = "beacon_dark_grey_trial"
+choices = ["Dark Grey"]
+when = "active_trial in ['Treasury Bill', 'Warmth Devourer']"
+add = 70
+reason = "Pull獲得Trialを一気に進められます"
+
+[[beacon_rules]]
+id = "beacon_dark_grey_late"
+choices = ["Dark Grey"]
+when = "completed >= 90"
+add = 30
+reason = "現在の運用で大量Pullを活用できます"
+
+[[beacon_rules]]
+id = "beacon_dark_grey_lights_out"
+choices = ["Dark Grey"]
+when = "active_trial == 'Lights Out'"
+add = 60
+reason = "Lights Out中に大量のCurseを供給します"
+
+[[beacon_rules]]
+id = "beacon_dark_grey_curse"
+choices = ["Dark Grey"]
+when = "true"
+warning = "大量のCurseも同時に受けます"
+
+[[beacon_rules]]
+id = "beacon_yellow_jester"
+choices = ["Yellow"]
+when = '''"Jester's Trick" in missions'''
+add = 18
+reason = "Jester's Trickを進めます"
+
+[[beacon_rules]]
+id = "beacon_yellow_interest"
+choices = ["Yellow"]
+when = '''"Interest Scheme" in missions'''
+add = 18
+reason = "Interest Schemeを進めます"
+
+[[beacon_rules]]
+id = "beacon_yellow_materialism"
+choices = ["Yellow"]
+when = "'Materialism' in missions"
+add = 18
+reason = "Materialismと相乗します"
+
+[[beacon_rules]]
+id = "beacon_yellow_hoarder"
+choices = ["Yellow"]
+when = "'Hoarder' in missions"
+add = 18
+reason = "Hoarderを進めます"
+
+[[beacon_rules]]
+id = "beacon_yellow_ostinato"
+choices = ["Yellow"]
+when = "'Ostinato' in missions"
+add = 18
+reason = "Ostinato用のBoon獲得へつなげます"
+
+[[beacon_rules]]
+id = "beacon_yellow_ostinato_loop"
+choices = ["Yellow"]
+when = '''"Ostinato" in missions and "Interest Scheme" in missions and "Hoarder" in missions'''
+add = 80
+reason = "Ostinato＋Interest Scheme＋HoarderのYellow正帰還を回します"
+
+[[beacon_rules]]
+id = "beacon_yellow_jester_stacked"
+choices = ["Yellow"]
+when = '''aqua_stacks > 0 and "Interest Scheme" in missions and "Jester's Trick" in missions'''
+add = 90
+reason = "Aqua強化YellowでJester's SchemeのFlying Chestを増やします"
+
+[[beacon_rules]]
+id = "beacon_yellow_default"
+choices = ["Yellow"]
+when = '''"Jester's Trick" not in missions and "Interest Scheme" not in missions and "Materialism" not in missions and "Hoarder" not in missions and "Ostinato" not in missions'''
+reason = "Flying Chestを獲得します"
+
+[[beacon_rules]]
+id = "beacon_grey_unstable"
+choices = ["Grey"]
+when = "remaining <= emergency_remaining or choices < 4"
+add = -40
+warning = "先に延長とOrangeを安定させます"
+
+[[beacon_rules]]
+id = "beacon_grey_early_collection"
+choices = ["Grey"]
+when = "mission_count > 0 and pending_mission == '' and grey_left > 0 and completed < 30 and remaining > emergency_remaining and choices >= 4"
+add = 75
+reason = "Greyは見送るほど出現率が低下するため、安定後すぐMissionを増やします"
+
+[[beacon_rules]]
+id = "beacon_grey_late"
+choices = ["Grey"]
+when = "completed >= grey_deadline"
+add = 55
+warning = "Grey回収期限を過ぎています"
+
+[[beacon_rules]]
+id = "beacon_grey_urgent"
+choices = ["Grey"]
+when = "35 <= completed < grey_deadline"
+add = 45
+reason = "Challenge 40前にGreyを取り切ります"
+
+[[beacon_rules]]
+id = "beacon_grey_prepare"
+choices = ["Grey"]
+when = "30 <= completed < 35"
+add = 25
+reason = "Challenge 40前のGrey回収へ余裕を残します"
+
+[[beacon_rules]]
+id = "beacon_grey_general"
+choices = ["Grey"]
+when = "true"
+reason = "Missionコンボを構築できます"
+
+[[beacon_rules]]
+id = "beacon_crimson_first_take"
+choices = ["Crimson"]
+when = "crimson_taken == 0 and completed >= crimson_unlock"
+add = 60
+reason = "第1Trialを確保し、Crimsonの出現率低下を避けます"
+
+[[beacon_rules]]
+id = "beacon_crimson_second_take"
+choices = ["Crimson"]
+when = "crimson_taken == 1 and active_trial == ''"
+add = 70
+reason = "第2Trialを確保し、ルート構築を完了します"
+
+[[beacon_rules]]
+id = "beacon_crimson_power_one_wait"
+choices = ["Crimson"]
+when = "power < 2 and crimson_unlock <= completed < crimson_prepare_end and crimson_taken < trial_slots and active_trial == '' and crimson_skips < 2 and choices >= 4 and rerolls > 0 and timer >= 450 and red_remaining == 0"
+add = -45
+warning = "Aquaを1回待ち、Trial選択肢を増やします"
+
+[[beacon_rules]]
+id = "beacon_crimson_power_one_take"
+choices = ["Crimson"]
+when = "power < 2 and not (crimson_unlock <= completed < crimson_prepare_end and crimson_taken < trial_slots and active_trial == '' and crimson_skips < 2 and choices >= 4 and rerolls > 0 and timer >= 450 and red_remaining == 0)"
+reason = "Aquaを待つ余裕がないためCrimsonを確保します"
+
+[[beacon_rules]]
+id = "beacon_crimson_power_two_wait"
+choices = ["Crimson"]
+when = "false"
+
+[[beacon_rules]]
+id = "beacon_crimson_power_two_take"
+choices = ["Crimson"]
+when = "power == 2"
+add = 20
+reason = "Power 2で3候補を確保し、skipによるCrimson出現率低下を避けます"
+
+[[beacon_rules]]
+id = "beacon_crimson_power_three"
+choices = ["Crimson"]
+when = "power >= 3"
+add = 45
+reason = "Power 3以上でTrial候補数を増やせます"
+
+[[beacon_rules]]
+id = "beacon_crimson_skipped"
+choices = ["Crimson"]
+when = "crimson_skips >= 2"
+add = 90
+reason = "既に2回見送っているため出現率低下を避けます"
+
+[[beacon_rules]]
+id = "beacon_crimson_late"
+choices = ["Crimson"]
+when = "completed >= crimson_prepare_end"
+add = 25
+reason = "Crimson出現終了前に確保します"
+
+[[beacon_rules]]
+id = "beacon_crimson_general"
+choices = ["Crimson"]
+when = "true"
+reason = "高価値Trialを確保します"
+
+[[beacon_rules]]
+id = "beacon_goal"
+when = "goal_bonus != 0"
+add = "goal_bonus"
+reason = "選択した目的に合致します"
+
+[[beacon_rules]]
+id = "beacon_opening_bonus"
+when = "completed < opening_end"
+add = "opening_bonus - (55 if choice == 'Orange' and orange_max >= 15 else 0)"
+
+[[beacon_rules]]
+id = "beacon_opening_reason"
+when = "completed < opening_end and opening_bonus > 0"
+reason = "Challenge 10前のセットアップを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_wait"
+choices = ["Red", "White", "Green", "Purple", "Dark Grey", "Yellow", "Blue", "Pink"]
+when = "pending_mission != '' and mission_objective != 'NONE' and completed < first_mission_fallback and not (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)"
+warning = "Missionはセットアップ後に進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_defer_for_premium"
+choices = ["Red", "White", "Green", "Purple", "Dark Grey", "Yellow", "Blue", "Pink"]
+when = "pending_mission != '' and mission_ratio < 0.85 and ((choice != 'White' and 'White' in offered and power >= 3) or (choice != 'Orange' and 'Orange' in offered and orange_count > 0 and orange_max <= 4 and choices <= 4) or (choice != 'Red' and 'Red' in offered and remaining < 4) or (choice != 'Crimson' and 'Crimson' in offered and crimson_taken < trial_slots and active_trial == ''))"
+add = -100
+warning = "Objective序盤は、有限・一回限り・期限切れ間近のBeaconを先に確保します"
+
+[[beacon_rules]]
+id = "beacon_objective_challenge_red"
+choices = ["Red"]
+when = "pending_mission != '' and mission_objective == 'CHALLENGES' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "50 + round(20 * mission_ratio)"
+reason = "進行中MissionのChallenge Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_challenge_white"
+choices = ["White"]
+when = "pending_mission != '' and mission_objective == 'CHALLENGES' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "45 + round(20 * mission_ratio)"
+reason = "進行中MissionのChallenge Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_time"
+choices = ["Green"]
+when = "pending_mission != '' and mission_objective == 'TIME' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "95 + round(20 * mission_ratio)"
+reason = "進行中Missionの時間Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_time_cap_waste"
+choices = ["Green"]
+when = "pending_mission != '' and mission_objective == 'TIME' and timer >= 700 and mission_ratio < 0.8"
+add = -70
+warning = "Timer上限でGreenの多くを失うため、Mission終盤までは他の良手を優先します"
+
+[[beacon_rules]]
+id = "beacon_objective_pulls_purple"
+choices = ["Purple"]
+when = "pending_mission != '' and mission_objective == 'PULLS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "75 + round(20 * mission_ratio)"
+reason = "進行中MissionのPull Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_pulls_dark"
+choices = ["Dark Grey"]
+when = "pending_mission != '' and mission_objective == 'PULLS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "55 + round(20 * mission_ratio)"
+reason = "進行中MissionのPull Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_chests"
+choices = ["Yellow"]
+when = "pending_mission != '' and mission_objective == 'CHESTS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "85 + round(20 * mission_ratio)"
+reason = "進行中MissionのChest Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_chests_porphy_defer"
+choices = ["Yellow"]
+when = "pending_mission != '' and mission_objective == 'CHESTS' and mission_ratio < 0.5 and 'Porphyrophobia' in missions and 'Purple' in offered"
+add = -20
+warning = "Chest Objective序盤はPorphyrophobiaの高価値Purpleを優先できます"
+
+[[beacon_rules]]
+id = "beacon_objective_items"
+choices = ["Yellow"]
+when = "pending_mission != '' and mission_objective == 'ITEMS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "75 + round(20 * mission_ratio)"
+reason = "進行中MissionのItem Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_boons"
+choices = ["Blue"]
+when = "pending_mission != '' and mission_objective == 'BOONS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "85 + round(20 * mission_ratio)"
+reason = "進行中MissionのBoon Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_curses_purple"
+choices = ["Purple"]
+when = "pending_mission != '' and mission_objective == 'CURSES' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "80 + round(20 * mission_ratio)"
+reason = "進行中MissionのCurse Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_curses_dark"
+choices = ["Dark Grey"]
+when = "pending_mission != '' and mission_objective == 'CURSES' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "65 + round(20 * mission_ratio)"
+reason = "進行中MissionのCurse Objectiveを進めます"
+
+[[beacon_rules]]
+id = "beacon_objective_rerolls"
+choices = ["Pink"]
+when = "pending_mission != '' and mission_objective == 'REROLLS' and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices))"
+add = "90 + round(20 * mission_ratio)"
+reason = "進行中MissionのReroll Objectiveを進めます"
+
+[[mission_rules]]
+id = "mission_materialism"
+choices = ["Materialism"]
+when = "true"
+add = 16
+reason = "ChallengeごとにFlying Chestを供給します"
+
+[[mission_rules]]
+id = "mission_cleansing_curses"
+choices = ["Cleansing Greed"]
+when = "curses >= 4"
+add = "min(45, curses * 5)"
+reason = "現在のCurseをFlying Chestで除去できます"
+
+[[mission_rules]]
+id = "mission_cleansing_materialism"
+choices = ["Cleansing Greed"]
+when = "'Materialism' in missions"
+add = 55
+reason = "Materialismと組み合わせて毎Challenge Curseを除去できます"
+
+[[mission_rules]]
+id = "mission_fixed_reward"
+choices = ["Redemption", "High Roller"]
+when = "true"
+add = 22
+reason = "コンボ不成立でも確定報酬があります"
+
+[[mission_rules]]
+id = "mission_redemption_first_two"
+choices = ["Redemption"]
+when = "sacrifices < 2"
+add = 35
+reason = "最初の2 Sacrificeは次回保存率への寄与が大きいです"
+
+[[mission_rules]]
+id = "mission_inner_peace"
+choices = ["Inner Peace"]
+when = "curses >= 6 or active_trial in ['Lights Out', 'All In']"
+add = 50
+reason = "現在のCurse負荷を緩和します"
+
+[[mission_rules]]
+id = "mission_requiem"
+choices = ["Requiem"]
+when = "risk == 'DANGER'"
+add = 55
+reason = "高リスク状態の敵強化を無効化します"
+
+[[mission_rules]]
+id = "mission_knife_long"
+choices = ["Knife Edge"]
+when = "limit > 55"
+add = -30
+warning = "残Challengeが多い間はPullを得にくいです"
+
+[[mission_rules]]
+id = "mission_high_spirits_knife"
+choices = ["High Spirits"]
+when = '''"Knife Edge" in missions'''
+add = -45
+warning = "高Power RedはKnife Edgeと衝突します"
+
+[[mission_rules]]
+id = "mission_thrill_chrono"
+choices = ["Thrill Seeker"]
+when = "active_trial == 'Chronotrigger'"
+add = -55
+warning = "Chronotrigger運用のGreenで段階がリセットされます"
+
+[[mission_rules]]
+id = "mission_opal_no_boon"
+choices = ["Opal Offering"]
+when = "boon_count == 0"
+add = -25
+warning = "変換するBoonがないため、先にBoon蓄積が必要です"
+
+[[mission_rules]]
+id = "mission_sacrifice_knife"
+choices = ["Sacrificial Ritual"]
+when = '''"Knife Edge" in missions'''
+add = -80
+warning = "Challenge追加でKnife EdgeのPull獲得量を下げます"
+
+[[mission_rules]]
+id = "mission_goal"
+when = "goal_bonus != 0"
+add = "goal_bonus"
+reason = "選択した目的に合致します"
+
+[[trial_rules]]
+id = "trial_imperitia"
+choices = ["Imperitia"]
+when = "true"
+reason = "通常は他のTrialを優先します"
+warning = "選択した場合もラン状態へ反映できます"
+
+[[trial_rules]]
+id = "trial_gambling_first"
+choices = ["Gambling Beast"]
+when = "completed_trial_count == 0 and active_trial == ''"
+add = -65
+warning = "原則、第2Trialでラン終了用に取ります"
+
+[[trial_rules]]
+id = "trial_gambling_second"
+choices = ["Gambling Beast"]
+when = "(completed_trial_count > 0 or active_trial != '') and not (goal == 'BOXES' or (goal not in ['SHORT', 'REROLLS'] and (('Interest Scheme' in missions and ('Materialism' in missions or 'Hoarder' in missions or \"Jester's Trick\" in missions)) or ('Materialism' in missions and 'Hoarder' in missions))))"
+add = 40
+reason = "第2Trialとして短期終了ルートに適合します"
+
+[[trial_rules]]
+id = "trial_gambling_needs_support"
+choices = ["Gambling Beast"]
+when = "goal not in ['SHORT', 'REROLLS'] and ((1 if 'Redemption' in missions else 0) + (1 if 'High Roller' in missions else 0) + (1 if 'Optimism' in missions else 0) + (1 if 'Backup Beat' in missions else 0)) < 2"
+add = -70
+warning = "Gambling Beast支援Missionが2つ未満のため、通常の長期ルートを維持します"
+
+[[trial_rules]]
+id = "trial_gambling_flying_route_block"
+choices = ["Gambling Beast"]
+when = '''goal == 'BOXES' or (goal not in ['SHORT', 'REROLLS'] and (('Interest Scheme' in missions and ('Materialism' in missions or 'Hoarder' in missions or "Jester's Trick" in missions)) or ('Materialism' in missions and 'Hoarder' in missions)))'''
+add = -180
+block = true
+warning = "Flying Chest長期運用をTimer消費で終了させるため、明示的なSHORT/REROLLS目的以外では選びません"
+
+[[trial_rules]]
+id = "trial_gambling_combo"
+choices = ["Gambling Beast"]
+when = "combo_count > 0"
+add = -35
+warning = "有効なMissionコンボを維持する100 Challenge運用と衝突します"
+
+[[trial_rules]]
+id = "trial_hubris_danger"
+choices = ["Hubris"]
+when = "risk == 'DANGER'"
+add = -70
+warning = "現在の危険度で死亡即終了は不適です"
+
+[[trial_rules]]
+id = "trial_first_two_sacrifices"
+choices = ["Ultimate Sacrifice", "Hubris"]
+when = "sacrifices < 2"
+add = 30
+reason = "通常ランでも最低2 Sacrificeを確保する価値があります"
+
+[[trial_rules]]
+id = "trial_ultimate_no_boon"
+choices = ["Ultimate Sacrifice"]
+when = "boon_count == 0"
+add = 15
+reason = "失うBoon効果が少ない状態です"
+
+[[trial_rules]]
+id = "trial_chrono_timer"
+choices = ["Chronotrigger"]
+when = "timer < 600"
+add = -45
+warning = "12 Challengeを時間獲得なしで越すにはTimerが不足気味です"
+
+[[trial_rules]]
+id = "trial_chrono_porphy"
+choices = ["Chronotrigger"]
+when = "'Porphyrophobia' in missions"
+add = 55
+reason = "Porphyrophobiaを主Pull源にできます"
+
+[[trial_rules]]
+id = "trial_lights_porphy"
+choices = ["Lights Out"]
+when = "'Porphyrophobia' in missions"
+add = 45
+reason = "大量CurseをPullへ変換できます"
+
+[[trial_rules]]
+id = "trial_treasury_pulls"
+choices = ["Treasury Bill"]
+when = "pulls >= 20"
+add = 35
+reason = "現在Pullがあり完了時+75%を活かせます"
+
+[[trial_rules]]
+id = "trial_side_hustle_camp"
+choices = ["Side Hustle"]
+when = "camp in ['Corkus', 'Molten Heights']"
+add = 20
+reason = "Chest経路を取りやすいCampです"
+
+[[trial_rules]]
+id = "trial_warmth_safe"
+choices = ["Warmth Devourer"]
+when = "remaining >= 35"
+add = 5
+reason = "3 Challengeずつの消費を吸収できる大きな余裕があります"
+
+[[trial_rules]]
+id = "trial_warmth_danger"
+choices = ["Warmth Devourer"]
+when = "remaining < 35"
+add = -70
+warning = "25 Pull獲得まで3 Challengeずつ消費するため、残Challengeが不足します"
+
+[[trial_rules]]
+id = "trial_dying_light_boon"
+choices = ["Dying Light"]
+when = "completed <= 50 and remaining >= 20"
+add = 20
+reason = "開始後に800% Boon Potencyを得るためのChallenge余裕があります"
+
+[[trial_rules]]
+id = "trial_dying_light_late"
+choices = ["Dying Light"]
+when = "completed > 50 or remaining < 20"
+add = -70
+warning = "開始後に800% Boon Potencyを得る余裕が不足しています"
+
+[[trial_rules]]
+id = "trial_all_in_sacrifices"
+choices = ["All In"]
+when = "sacrifices >= 3"
+add = 45
+reason = "Sacrificeを各3 Rerollへ変換できます"
+
+[[trial_rules]]
+id = "trial_goal"
+when = "goal_bonus != 0"
+add = "goal_bonus"
+reason = "選択した目的に合致します"
+
+[[reroll_target_rules]]
+id = "reroll_grey_setup"
+when = "mission_count < 3 and pending_mission == '' and mission_count > 0 and completed < grey_deadline and 'Grey' not in offered and rerolls > rainbow_late_reserve"
+targets = ["Grey"]
+reason = "少なくとも3 Missionを確保するためGreyを探索"
+
+[[reroll_target_rules]]
+id = "reroll_crimson_setup"
+when = "completed_trial_count + (1 if active_trial != '' else 0) < 2 and active_trial == '' and crimson_unlock <= completed < crimson_prepare_end and 'Crimson' not in offered and rerolls > rainbow_early_reserve"
+targets = ["Crimson"]
+reason = "少なくとも2 Trialを確保するためCrimsonを探索"
+
+[[reroll_target_rules]]
+id = "reroll_extension"
+when = "remaining <= emergency_remaining and 'Red' not in offered and 'White' not in offered"
+targets = ["Red", "White"]
+reason = "残Challengeの即時延長が必要"
+emergency = true
+
+[[reroll_target_rules]]
+id = "reroll_time"
+when = "active_trial not in ['Chronotrigger', 'Side Hustle'] and 'Green' not in offered and (timer <= danger_time or (red_remaining > 0 and timer <= red_low_time) or (red_remaining == 0 and 'Red' not in offered and limit < 100 and 5 <= remaining <= 7 and timer <= red_next_low_time))"
+targets = ["Green"]
+reason = "残り時間が危険域"
+emergency = true
+
+[[reroll_target_rules]]
+id = "reroll_aqua_crimson"
+when = "aqua_stacks > 0 and completed >= crimson_unlock and crimson_taken < trial_slots and active_trial == '' and 'Crimson' not in offered"
+targets = ["Crimson"]
+reason = "Aqua StackをCrimsonへ使用"
+
+[[reroll_target_rules]]
+id = "reroll_aqua_white"
+when = "aqua_stacks > 0 and not (completed >= crimson_unlock and crimson_taken < trial_slots and active_trial == '' and 'Crimson' not in offered) and not white_taken and (rainbow_active or completed >= 15) and 'White' not in offered"
+targets = ["White"]
+reason = "Aqua Stackを一度限りのWhiteへ使用"
+
+[[reroll_target_rules]]
+id = "reroll_early_aqua_orange"
+when = "aqua_stacks > 0 and completed < opening_end and choices < 6 and 'Orange' not in offered and not (('Orange' in offered and choices < 6) or ('Blue' in offered and (boon_count < 3 or boon_potency < 300)) or ('Pink' in offered and rerolls <= 3) or ('Red' in offered and remaining <= 6))"
+targets = ["Orange"]
+reason = "保持中Aquaの有力な使用先を探索"
+
+[[reroll_target_rules]]
+id = "reroll_early_aqua_blue"
+when = "aqua_stacks > 0 and completed < opening_end and (boon_count < 3 or boon_potency < 300) and 'Blue' not in offered and not (('Orange' in offered and choices < 6) or ('Blue' in offered and (boon_count < 3 or boon_potency < 300)) or ('Pink' in offered and rerolls <= 3) or ('Red' in offered and remaining <= 6))"
+targets = ["Blue"]
+reason = "保持中Aquaの有力な使用先を探索"
+
+[[reroll_target_rules]]
+id = "reroll_early_aqua_pink"
+when = "aqua_stacks > 0 and completed < opening_end and rerolls <= 3 and 'Pink' not in offered and not (('Orange' in offered and choices < 6) or ('Blue' in offered and (boon_count < 3 or boon_potency < 300)) or ('Pink' in offered and rerolls <= 3) or ('Red' in offered and remaining <= 6))"
+targets = ["Pink"]
+reason = "保持中Aquaの有力な使用先を探索"
+
+[[reroll_target_rules]]
+id = "reroll_early_aqua_red"
+when = "aqua_stacks > 0 and completed < opening_end and remaining <= 6 and 'Red' not in offered and not (('Orange' in offered and choices < 6) or ('Blue' in offered and (boon_count < 3 or boon_potency < 300)) or ('Pink' in offered and rerolls <= 3) or ('Red' in offered and remaining <= 6))"
+targets = ["Red"]
+reason = "保持中Aquaの有力な使用先を探索"
+
+[[reroll_target_rules]]
+id = "reroll_rainbow"
+when = "completed >= opening_end and not rainbow_active and 'Rainbow' not in offered and (completed <= 30 or 'Dying Light' in completed_trials)"
+targets = ["Rainbow"]
+reason = "序盤セットアップ、またはDying Light用のRainbowを確保"
+
+[[reroll_target_rules]]
+id = "reroll_aqua_before_crimson_unlock"
+when = "completed in [18, 19] and aqua_stacks == 0 and rainbow_active and 'Aqua' not in offered"
+targets = ["Aqua"]
+reason = "Challenge 20以降に解禁されるCrimsonを強化"
+
+[[reroll_target_rules]]
+id = "reroll_aqua_before_crimson"
+when = "false"
+targets = ["Aqua"]
+reason = "表示済みCrimsonはskipせず確保"
+
+[[reroll_target_rules]]
+id = "reroll_objective_time"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective == 'TIME' and 'Green' not in offered"
+targets = ["Green"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_target_rules]]
+id = "reroll_objective_pulls"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective == 'PULLS' and 'Purple' not in offered"
+targets = ["Purple"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_target_rules]]
+id = "reroll_objective_chests"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective in ['CHESTS', 'ITEMS'] and 'Yellow' not in offered"
+targets = ["Yellow"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_target_rules]]
+id = "reroll_objective_boons"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective == 'BOONS' and 'Blue' not in offered"
+targets = ["Blue"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_target_rules]]
+id = "reroll_objective_curses"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective == 'CURSES' and 'Purple' not in offered"
+targets = ["Purple"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_target_rules]]
+id = "reroll_objective_rerolls"
+when = "pending_mission != '' and mission_target > 0 and mission_ratio >= 0.75 and (completed >= first_mission_fallback or (rainbow_active and white_taken and limit >= setup_min_limit and choices >= setup_min_choices)) and mission_objective == 'REROLLS' and 'Pink' not in offered"
+targets = ["Pink"]
+reason = "進行中MissionのObjective完了を優先"
+
+[[reroll_decision_rules]]
+id = "reroll_unavailable"
+when = "rerolls <= 0 or pending_beacon != ''"
+recommend = false
+reason = "Rerollを使用できません"
+
+[[reroll_decision_rules]]
+id = "reroll_no_target"
+when = "not has_targets"
+recommend = false
+reason = "現在の候補から選択"
+
+[[reroll_decision_rules]]
+id = "reroll_target_offered"
+when = "target_offered"
+recommend = false
+reason = "目的のBeaconが提示済み"
+
+[[reroll_decision_rules]]
+id = "reroll_rainbow_ramp_wait"
+when = "not emergency and not rainbow_active and completed < rainbow_reroll_start"
+recommend = false
+reason = "Rainbow解禁直後は出現率の上昇待ちとし、Rerollを温存"
+
+[[reroll_decision_rules]]
+id = "reroll_rainbow_early_reserve"
+when = "not emergency and not rainbow_active and completed < rainbow_full_hunt_start and rerolls <= rainbow_early_reserve"
+recommend = false
+reason = "Rainbow探索前半の予備Rerollを4回温存"
+
+[[reroll_decision_rules]]
+id = "reroll_rainbow_late_reserve"
+when = "not emergency and not rainbow_active and rerolls <= rainbow_late_reserve"
+recommend = false
+reason = "緊急延長・Mission・Crimson用にRerollを2回温存"
+
+[[reroll_decision_rules]]
+id = "reroll_few_choices"
+when = "choices < 4 and not emergency and not (aqua_stacks > 0 and completed < opening_end and rerolls >= 3)"
+recommend = false
+reason = "選択肢4未満のためRerollを温存"
+
+[[reroll_decision_rules]]
+id = "reroll_last"
+when = "rerolls == 1 and not emergency and (aqua_stacks == 0 or completed < opening_end)"
+recommend = false
+reason = "最後のRerollを緊急延長用に温存"
+
+[[reroll_decision_rules]]
+id = "reroll_keep_by_goal"
+when = "not emergency and ((goal == 'BALANCED' and best_score >= 150) or (goal == 'PULLS' and best_score >= 100) or (goal == 'BOXES' and best_score >= 170) or (goal == 'REROLLS' and best_score >= 150) or (goal == 'SACRIFICES' and best_score >= 135) or (goal == 'SHORT' and best_score >= 150))"
+recommend = false
+reason = "{best_name}が目的別の保持基準を満たします"
+
+[[reroll_decision_rules]]
+id = "reroll_use"
+when = "true"
+recommend = true
+
