@@ -16,7 +16,7 @@ Ferutils 0.8.x 用の独立配布Lootrunストラテジーです。
 ## 互換性
 
 - Strategy schema: 3
-- Tested with Ferutils App 0.8.1–0.8.5 strategy evaluator
+- Tested with Ferutils App 0.8.1–0.8.6 strategy evaluator
 
 ## 方針
 

@@ -17,6 +17,8 @@ Any visible choice can be selected in the App. The recommendation has a larger a
 
 In-game Beacon Rerolls are detected automatically when the Wynncraft Reroll link is clicked. Beacon candidates are synchronized after normal Challenges, Rerolls, and `/class` reloads.
 
+Loading a saved Lootrun state restores the current Beacon candidates from the connected mod automatically.
+
 Mission and Trial candidates are loaded automatically when available. Their manual picker opens only from the candidate selection button.
 
 Select a goal under `Run status`. The selected goal remains active for later runs and App restarts.
