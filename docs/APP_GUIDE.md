@@ -15,7 +15,7 @@ While the mod is connected, Beacon choices, selections, Challenge results, Missi
 
 Any visible choice can be selected in the App. The recommendation has a larger action button, but it is not mandatory.
 
-In-game Beacon Rerolls are detected automatically when the Wynncraft Reroll link is clicked. Beacon candidates are synchronized after normal Challenges, Rerolls, and `/class` reloads.
+In-game Beacon Rerolls are detected automatically when the Wynncraft Reroll link is clicked. Complete Wynncraft Beacon prompts synchronize candidates after normal Challenges, Rerolls, and `/class` reloads; the Wynntils Beacon model is used as a fallback.
 
 Loading a saved Lootrun state restores the current Beacon candidates from the connected mod automatically.
 

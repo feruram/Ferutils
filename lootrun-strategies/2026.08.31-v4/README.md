@@ -1,32 +1,31 @@
 # Ferutils Lootrun Strategy 2026.08.31 v4
 
-Ferutils 0.8.x 用の独立配布Lootrunストラテジーです。
+An independently distributed Lootrun strategy for Ferutils 0.8.x.
 
-## 収録ファイル
+## Included file
 
-- `ferutils-lootrun-strategy-2026.08.31-v4.toml`: ストラテジー本体
+- `ferutils-lootrun-strategy-2026.08.31-v4.toml`: strategy data
 
-## 導入方法
+## Installation
 
-1. Ferutils Appを終了します。
-2. 現在使用している `lootrun-strategy.toml` をバックアップします。
-3. Ferutils Appの `Settings` → `Lootrun strategy` から同梱TOMLを選択します。
-4. 設定を保存してFerutils Appを再起動します。
+1. Close Ferutils App.
+2. Back up the `lootrun-strategy.toml` file currently in use.
+3. In Ferutils App, open `Settings` → `Lootrun strategy` and select the included TOML file.
+4. Save the settings and restart Ferutils App.
 
-## 互換性
+## Compatibility
 
 - Strategy schema: 3
-- Tested with Ferutils App 0.8.1–0.8.6 strategy evaluator
+- Tested with Ferutils App 0.8.1–0.8.7 strategy evaluator
 
-## 方針
+## Policy changes
 
-- 通常時のBlue過剰推薦を抑制
-- Red・White・Orange・Crimsonなど、一回性・期限・継続性に関わるBeaconをMission Objectiveより優先
-- 残ChallengeとOrange残回数に応じてAquaによる延長準備を実施
-- Greyの出現率低下前にMission候補を確保
-- Gambling Beastは対応Missionが不足している場合に抑制
-- Boon/Curseの安全判定には個数ではなくPotencyを使用
+- Reduces excessive Blue recommendations in ordinary states.
+- Prioritizes one-time, expiring, or route-defining Beacons such as Red, White, Orange, and Crimson over Mission objectives.
+- Prepares Aqua extensions according to remaining Challenges and Orange duration.
+- Secures Mission offers before Grey becomes less likely to appear.
+- Suppresses Gambling Beast when supporting Missions are insufficient.
+- Uses Potency instead of counts for Boon and Curse safety checks.
 
-このストラテジーは将来のFerutils本体リリースとは別の
-`lootrun-strategy-v*` リリース系列で更新されます。
+This strategy is updated through the separate `lootrun-strategy-v*` release series.
 
