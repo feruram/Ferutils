@@ -16,7 +16,7 @@ An independently distributed Lootrun strategy for Ferutils 0.8.x.
 ## Compatibility
 
 - Strategy schema: 3
-- Tested with Ferutils App 0.8.1–0.8.7 strategy evaluator
+- Tested with Ferutils App 0.8.1–0.8.8 strategy evaluator
 
 ## Policy changes
 

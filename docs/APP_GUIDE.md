@@ -19,6 +19,8 @@ In-game Beacon Rerolls are detected automatically when the Wynncraft Reroll link
 
 Loading a saved Lootrun state restores the current Beacon candidates from the connected mod automatically.
 
+If synchronization stops, open `/class`, select `Reload game state` under `Run status`, then return to the Lootrun. The App waits for a complete Beacon set before replacing its phase and candidates.
+
 Mission and Trial candidates are loaded automatically when available. Their manual picker opens only from the candidate selection button.
 
 Select a goal under `Run status`. The selected goal remains active for later runs and App restarts.
