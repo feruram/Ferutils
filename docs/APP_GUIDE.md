@@ -52,6 +52,10 @@ Analysis continues after the cursor moves away. Earlier results remain in the Mi
 
 Hold `Left Alt` while hovering gear to register it. Identical stats are not registered twice. The registration key can be changed in the mod settings.
 
+Hold `Right Alt` while hovering gear to remove its registration. This does not remove the Minecraft item or other owned copies. A backup is saved first. Both hotkeys can be changed in the mod settings (`O`).
+
+Unowned gear is recommended for registration even with limited market samples. Market-value decisions use the price shown in the tooltip and the threshold in Settings.
+
 The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export, duplicate cleanup, reload, and re-analysis.
 
 ## Ingredients

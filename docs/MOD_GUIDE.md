@@ -8,6 +8,7 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 - Hover identified gear: analyze price, IDs, and owned copies
 - Hover an Ingredient: show its market price
 - Hold `Left Alt` while hovering gear: register it as owned
+- Hold `Right Alt` while hovering gear: remove that gear's registration
 
 Keys can be changed on the Ferutils settings screen.
 
@@ -16,6 +17,10 @@ Keys can be changed on the Ferutils settings screen.
 The tooltip first shows `Analyzing` or `Queued`, then displays the result. Processing continues after the cursor moves away, and multiple hovered items are handled in order.
 
 Identical item name, actual IDs, Reroll count, and Shiny state are not registered twice.
+
+Removing a registration does not remove the Minecraft item or other owned copies. A backup is saved in the App's data folder before removal.
+
+Unowned gear is recommended for registration even when market samples are limited. Market-value decisions use the displayed price and the threshold set in the App.
 
 ## Tooltip states
 
@@ -26,8 +31,13 @@ Identical item name, actual IDs, Reroll count, and Shiny state are not registere
 - `Market candidate`: consider selling on the Trade Market
 - `Blacksmith candidate`: consider selling to the Blacksmith
 - `Owned`: identical stats are already registered
+- `Unregistered`: the hovered gear's registration was removed
+- `Not registered`: no matching registration was found to remove
 - `UNTRADABLE`: market-price requests are skipped
 - `App offline`: the App is not connected
+- `Market API unavailable`: the App is connected but Wynnventory did not return usable data
+- `Check API key`: Wynnventory rejected the API credentials
+- `App response timed out`: the App did not respond in time
 
 The line below an upgrade shows the ID used for the decision and its difference from the relevant owned copy.
 
