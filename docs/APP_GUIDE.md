@@ -58,6 +58,8 @@ Unowned gear is recommended for registration even with limited market samples. M
 
 The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export, duplicate cleanup, reload, and re-analysis.
 
+Price analysis uses matching item names across all available listing pages. Listings without ID data cannot contribute to ID-based estimates. Similarly named gear, such as Warp and Masterwork Warp, is not combined.
+
 ## Ingredients
 
 Hover an Ingredient or search its name in the App to view its per-item price and stack total. Ingredients are not registered as owned gear.
