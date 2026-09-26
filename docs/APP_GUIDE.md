@@ -60,6 +60,15 @@ The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export,
 
 Price analysis uses matching item names across all available listing pages. Listings without ID data cannot contribute to ID-based estimates. Similarly named gear, such as Warp and Masterwork Warp, is not combined.
 
+### Optional price weights
+
+- Open `Settings` → `Item Manager rules`, enable `Wynnpool price weights` and/or `Nori price weights`, save, and restart the App. Both are off by default.
+- Weights describe community preferences, not guaranteed sale prices. Official Wynncraft data supplies ID ranges, not price weights.
+- Current catalogs cover Mythic gear. Other gear keeps the usual estimate unless an exact, compatible scale becomes available.
+- Weighted estimates require enough complete samples and lower validation error. Missing IDs, unsupported rolls, Shiny gear, or unavailable weight services use the usual model.
+- Item details show the selected source and scale, or why the usual model was retained. Prices reflect observed listings, not confirmed sales.
+- Turn both options off to restore the usual estimation method. Ingredients and ownership-comparison weights are unchanged.
+
 ## Ingredients
 
 Hover an Ingredient or search its name in the App to view its per-item price and stack total. Ingredients are not registered as owned gear.
@@ -71,6 +80,7 @@ Save and restart the App and Minecraft after changing connection settings.
 - `Language`: Auto, Japanese, or English
 - `Data folder`: owned items, backups, exports, settings, and logs
 - `Wynnventory API key`: market-price access
+- `Wynnpool price weights` and `Nori price weights`: optional price-estimation aids; save and restart the App
 - `App host` and `App port`: mod connection
 - `Item Manager link` and `Lootrun link`: enable or disable integration
 - `Lootrun strategy`: selects a Lootrun strategy TOML file
