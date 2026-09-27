@@ -56,6 +56,8 @@ Hold `Right Alt` while hovering gear to remove its registration. This does not r
 
 Unowned gear is recommended for registration even with limited market samples. Market-value decisions use the price shown in the tooltip and the threshold in Settings.
 
+Regular and Masterwork gear are priced separately. Existing owned items use the current ID ranges when re-analyzed; no re-registration is needed. Estimates reflect observed asking prices, not guaranteed sale prices.
+
 The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export, duplicate cleanup, reload, and re-analysis.
 
 Price analysis uses matching item names across all available listing pages. Listings without ID data cannot contribute to ID-based estimates. Similarly named gear, such as Warp and Masterwork Warp, is not combined.
