@@ -58,6 +58,13 @@ Unowned gear is recommended for registration even with limited market samples. M
 
 Regular and Masterwork gear are priced separately. Existing owned items use the current ID ranges when re-analyzed; no re-registration is needed. Estimates reflect observed asking prices, not guaranteed sale prices.
 
+Gear and Ingredients with the same name are analyzed separately.
+
+- `★ Melee`, `★ Mobility`, etc.: a role's best owned copy. Tied leaders share the badge.
+- `★ Overall IDs`: the highest overall ID rolls when no role is known.
+- `vs Spell #353`: the role and registration number used for comparison.
+- Zero differences against the same copy are hidden. `Equal` means matching rolls; `Comparison: missing IDs` means a comparison is unavailable.
+
 The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export, duplicate cleanup, reload, and re-analysis.
 
 Price analysis uses matching item names across all available listing pages. Listings without ID data cannot contribute to ID-based estimates. Similarly named gear, such as Warp and Masterwork Warp, is not combined.

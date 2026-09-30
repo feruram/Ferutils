@@ -41,6 +41,11 @@ Unowned gear is recommended for registration even when market samples are limite
 
 The line below an upgrade shows the ID used for the decision and its difference from the relevant owned copy.
 
+- `★ Melee`, `★ Mobility`, etc.: a role's best owned copy. A copy can lead several roles; ties share the badge.
+- `★ Overall IDs`: the highest overall ID rolls when no role is known.
+- `vs Spell #353`: the role and registration number used for comparison. ID differences are shown beside the rolls.
+- A representative compared with itself has no nonzero differences. `Equal` means matching rolls; `Comparison: missing IDs` means a comparison is unavailable.
+
 ## Lootrun link
 
 The mod sends the run state exposed by Wynntils, including:
