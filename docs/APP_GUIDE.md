@@ -62,6 +62,18 @@ The `Owned items` tab supports filtering, ID comparison, notes, JSON/CSV export,
 
 Price analysis uses matching item names across all available listing pages. Listings without ID data cannot contribute to ID-based estimates. Similarly named gear, such as Warp and Masterwork Warp, is not combined.
 
+### Organize owned items
+
+In `Owned items`, select an `Organize` filter. Use `Refresh analysis` for up-to-date comparisons.
+
+- **Outclassed in known roles:** one owned copy matches or exceeds every ID used by the market-supported roles, with at least one improvement. Any loss in other IDs is shown separately.
+- **Outclassed in all IDs:** one owned copy matches or exceeds every variable ID, with at least one improvement. No market-supported role is required.
+- **Roles unresolved:** review items with several copies of the same name. The default minimum is 3; change the count beside the filter.
+
+Select a candidate to see its reference registration number, actual IDs, and percentage-point differences. `Compare with reference` selects both copies together. Comparisons follow the usual ID roll direction; special builds may value different stats. Missing or incompatible stats never establish dominance.
+
+These are review candidates, not disposal instructions. Nothing is deleted automatically. Existing registration-removal controls affect the App inventory only, not Minecraft items. General-purpose stat preferences are not used to declare an item inferior.
+
 ### Optional price weights
 
 - Open `Settings` → `Item Manager rules`, enable `Wynnpool price weights` and/or `Nori price weights`, save, and restart the App. Both are off by default.
