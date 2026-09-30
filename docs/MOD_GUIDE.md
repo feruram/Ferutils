@@ -20,6 +20,8 @@ Identical item name, actual IDs, Reroll count, and Shiny state are not registere
 
 Removing a registration does not remove the Minecraft item or other owned copies. A backup is saved in the App's data folder before removal.
 
+The tooltip automatically returns to normal analysis after removal: `Not owned` if no owned copies remain, or a comparison with the remaining copies. Price and ID differences are refreshed automatically.
+
 Unowned gear is recommended for registration even when market samples are limited. Market-value decisions use the displayed price and the threshold set in the App.
 
 ## Tooltip states
@@ -31,8 +33,6 @@ Unowned gear is recommended for registration even when market samples are limite
 - `Market candidate`: consider selling on the Trade Market
 - `Blacksmith candidate`: consider selling to the Blacksmith
 - `Owned`: identical stats are already registered
-- `Unregistered`: the hovered gear's registration was removed
-- `Not registered`: no matching registration was found to remove
 - `UNTRADABLE`: market-price requests are skipped
 - `App offline`: the App is not connected
 - `Market API unavailable`: the App is connected but Wynnventory did not return usable data

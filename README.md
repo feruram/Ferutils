@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.8.15**
+Latest version: **0.8.16**
 
 ## Features
 
@@ -26,7 +26,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.8.15-windows-x64.zip` and `ferutils-0.8.15.jar`.
+2. Download `FerutilsApp-0.8.16-windows-x64.zip` and `ferutils-0.8.16.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.

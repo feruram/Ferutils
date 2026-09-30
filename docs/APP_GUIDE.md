@@ -54,6 +54,8 @@ Hold `Left Alt` while hovering gear to register it. Identical stats are not regi
 
 Hold `Right Alt` while hovering gear to remove its registration. This does not remove the Minecraft item or other owned copies. A backup is saved first. Both hotkeys can be changed in the mod settings (`O`).
 
+After removal, analysis updates automatically. With no owned copies left, the item shows `Not owned`; otherwise it is compared with the remaining owned copies.
+
 Unowned gear is recommended for registration even with limited market samples. Market-value decisions use the price shown in the tooltip and the threshold in Settings.
 
 Regular and Masterwork gear are priced separately. Existing owned items use the current ID ranges when re-analyzed; no re-registration is needed. Estimates reflect observed asking prices, not guaranteed sale prices.
