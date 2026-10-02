@@ -35,6 +35,10 @@ The complete latest strategy is bundled with the App and attached separately to 
 
 After a Lootrun ends, select `Export run log` to save a JSON record. No file is created unless you select a save location.
 
+- Use `Save` before closing the App, then `Load` when resuming. The final log includes the saved history and new events.
+- Logs include the strategy filename used for each event. Earlier events keep their original filename if you switch strategies between sessions.
+- Older state-only saves still load, but their missing earlier events cannot be recovered.
+
 See [Strategy file format](STRATEGY_FORMAT.md).
 
 ## Item Manager
