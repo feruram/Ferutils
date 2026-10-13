@@ -54,6 +54,8 @@ Hover identified gear in Minecraft to view:
 
 Analysis continues after the cursor moves away. Earlier results remain in the Minecraft link history.
 
+Hover unidentified gear to show the market price beside each possible item in Minecraft. These are typical identified asking prices; final IDs and the unidentified item's sale price are still unknown. Keep the App running to load these prices.
+
 Hold `Left Alt` while hovering gear to register it. Identical stats are not registered twice. The registration key can be changed in the mod settings.
 
 Hold `Right Alt` while hovering gear to remove its registration. This does not remove the Minecraft item or other owned copies. A backup is saved first. Both hotkeys can be changed in the mod settings (`O`).

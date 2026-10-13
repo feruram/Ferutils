@@ -6,6 +6,7 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 
 - `O`: open Ferutils settings
 - Hover identified gear: analyze price, IDs, and owned copies
+- Hover unidentified gear: show market prices for its possible items
 - Hover an Ingredient: show its market price
 - Hold `Left Alt` while hovering gear: register it as owned
 - Hold `Right Alt` while hovering gear: remove that gear's registration
@@ -23,6 +24,16 @@ Removing a registration does not remove the Minecraft item or other owned copies
 The tooltip automatically returns to normal analysis after removal: `Not owned` if no owned copies remain, or a comparison with the remaining copies. Price and ID differences are refreshed automatically.
 
 Unowned gear is recommended for registration even when market samples are limited. Market-value decisions use the displayed price and the threshold set in the App.
+
+### Unidentified gear
+
+Under `Ferutils: Candidates · Identified market`, each possible item shows its typical identified asking price. Final IDs are still unknown, so this is not an ID-specific estimate or the unidentified item's sale price.
+
+- `No market data`: no matching identified listings are available.
+- `Untradable`: no market-price request is made.
+- Amounts beside Wynntils' level labels are identification costs.
+
+These items are not registered as owned gear. Candidate prices also appear when Wynntils' guesses are disabled.
 
 ## Tooltip states
 
