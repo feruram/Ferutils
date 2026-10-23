@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.8.18**
+Latest version: **0.9.0**
 
 ## Features
 
@@ -13,6 +13,7 @@ Latest version: **0.8.18**
 - Inventory organization with ID differences and reference copies
 - Ingredient market prices
 - Lootrun tracking and recommendations
+- Selectable Lootrun strategy files or local AI models
 - Automatic Minecraft-to-app synchronization
 - Japanese and English UI
 
@@ -27,7 +28,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.8.18-windows-x64.zip` and `ferutils-0.8.18.jar`.
+2. Download `FerutilsApp-0.9.0-windows-x64.zip` and `ferutils-0.9.0.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
@@ -66,7 +67,9 @@ The App creates this editable file on first launch:
 
 `Documents\Ferutils\settings\lootrun-strategy.toml`
 
-The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file from `Settings` → `Lootrun strategy`. Restart the App after changing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
+The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file from `Settings` → `Lootrun strategy`, then save. Schema 1 and 2 files are upgraded while keeping compatible settings.
+
+Choose `Strategy file` or `Local AI` in `Settings` → `Lootrun advisor`. To use AI, select a compatible model's `manifest.json` and save. No trained model is bundled. See the [App guide](docs/APP_GUIDE.md#local-ai) for model setup.
 
 In-game Beacon Rerolls are detected automatically. Challenge completion and `/class` offer restoration do not consume a Reroll.
 

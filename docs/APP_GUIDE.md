@@ -31,7 +31,7 @@ The editable strategy file is stored at:
 
 `Documents\Ferutils\settings\lootrun-strategy.toml`
 
-The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file with `Settings` → `Lootrun strategy`. `Open strategy` opens the selected file. Restart the App after changing it. Schema 1 and 2 files are upgraded while keeping compatible settings.
+The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file with `Settings` → `Lootrun strategy`, then save. `Open strategy` opens the selected file. Schema 1 and 2 files are upgraded while keeping compatible settings.
 
 After a Lootrun ends, select `Export run log` to save a JSON record. No file is created unless you select a save location.
 
@@ -40,6 +40,21 @@ After a Lootrun ends, select `Export run log` to save a JSON record. No file is 
 - Older state-only saves still load, but their missing earlier events cannot be recovered.
 
 See [Strategy file format](STRATEGY_FORMAT.md).
+
+### Local AI
+
+1. Obtain a compatible Ferutils model. This release includes the AI runtime, but no trained model.
+2. Keep `manifest.json`, `policy.onnx`, and `verification.json` together. The data folder's `models` subfolder is a suitable location.
+3. Open `Settings` → `Lootrun advisor` and choose `Local AI`.
+4. Use `AI model (manifest.json)` to select the model, then save.
+
+The model name appears above the recommendation when it is ready. Switching models or returning to `Strategy file` takes effect on Save. No GPU or separate AI software is required by the packaged Windows App.
+
+- Loading, model errors, unsupported Goals or missing inputs: the selected strategy file supplies recommendations and the status shows the fallback.
+- `AI error`: check that all model files belong to the same package. Reselect a compatible model and save to retry.
+- Reroll and end-run recommendations do not perform Minecraft actions.
+- Run logs include the model name, version and checksum for AI recommendations. Saved logs retain this information when resuming.
+- AI ranking scores are not success probabilities. Model quality depends on the supplied model.
 
 ## Item Manager
 
@@ -113,6 +128,8 @@ Save and restart the App and Minecraft after changing connection settings.
 - `App host` and `App port`: mod connection
 - `Item Manager link` and `Lootrun link`: enable or disable integration
 - `Lootrun strategy`: selects a Lootrun strategy TOML file
+- `Lootrun advisor`: strategy file or local AI; applies on Save
+- `AI model (manifest.json)`: selects or replaces the local model; applies on Save
 - `Open strategy`: opens the selected strategy file
 - `Open folder`: opens the current data folder
 - `Back up`: creates an owned-item backup
