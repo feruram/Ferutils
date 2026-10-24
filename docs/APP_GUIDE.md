@@ -1,5 +1,13 @@
 # Ferutils App guide
 
+## Backups
+
+- Stored in `backups` inside your data folder.
+- Default: 5 database backups and 5 settings backups, within a combined 1 GiB budget. Manual backups count toward these limits.
+- Older backups are removed automatically. The newest database and settings backup are always kept, even if they exceed the budget.
+- Change `Backup generations` and `Backup budget (MiB)` in Settings, then save and restart the App.
+- Copy backups you want to keep indefinitely outside the `backups` folder. Inventory, exports, saved runs, and run logs are not cleaned up.
+
 ## Start
 
 1. Start `FerutilsApp.exe`.
