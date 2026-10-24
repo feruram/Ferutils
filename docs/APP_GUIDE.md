@@ -3,6 +3,8 @@
 ## Backups
 
 - Stored in `backups` inside your data folder.
+- Database backups keep owned items, notes, registration IDs, and database metadata, without downloadable API caches. Settings backups are stored separately.
+- Older database backups are reduced automatically when safe; their saved inventory is preserved. After restoring, market data is fetched again as needed.
 - Default: 5 database backups and 5 settings backups, within a combined 1 GiB budget. Manual backups count toward these limits.
 - Older backups are removed automatically. The newest database and settings backup are always kept, even if they exceed the budget.
 - Change `Backup generations` and `Backup budget (MiB)` in Settings, then save and restart the App.
