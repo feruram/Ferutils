@@ -4,9 +4,9 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 
 ## Updating
 
-Ferutils 0.9.3 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
+Ferutils 0.9.4 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
 
-If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.3.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
+If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.4.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
 
 ## Controls
 
@@ -64,6 +64,8 @@ The line below an upgrade shows the ID used for the decision and its difference 
 - A representative compared with itself has no nonzero differences. `Equal` means matching rolls; `Comparison: missing IDs` means a comparison is unavailable.
 
 ## Lootrun link
+
+Mission candidates are filled automatically, including offers with two detected names. After a Mission is selected, active-objective and immediately active Missions both return the Advisor to Beacon selection. Open the candidate-selection button only when a manual correction is needed.
 
 The mod sends the run state exposed by Wynntils, including:
 
