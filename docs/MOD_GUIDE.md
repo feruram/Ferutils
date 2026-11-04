@@ -4,9 +4,9 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 
 ## Updating
 
-Ferutils 0.9.4 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
+Ferutils 0.9.5 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
 
-If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.4.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
+If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.5.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
 
 ## Controls
 
@@ -40,6 +40,8 @@ Under `Ferutils: Candidates · Identified market`, each possible item shows its 
 - Amounts beside Wynntils' level labels are identification costs.
 
 These items are not registered as owned gear. Candidate prices also appear when Wynntils' guesses are disabled.
+
+`Expected value · Equal odds` is the arithmetic mean of the candidates' identified asking prices, assuming each candidate is equally likely. Identification fees are not deducted. It is a reference value, not the unidentified item's sale price or a guaranteed sale price. If any candidate has no usable market price, `Missing data` is shown instead of averaging only the available candidates.
 
 ## Tooltip states
 
