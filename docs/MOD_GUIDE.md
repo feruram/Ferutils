@@ -4,9 +4,9 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 
 ## Updating
 
-Ferutils 0.9.6 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
+Ferutils 0.9.7 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
 
-If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.6.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
+If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.9.7.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
 
 ## Controls
 
@@ -41,12 +41,14 @@ Under `Ferutils: Candidates · Identified market`, each possible item shows its 
 
 These items are not registered as owned gear. Candidate prices also appear when Wynntils' guesses are disabled.
 
-`Top candidate` shows the highest available identified market quote, followed by the number of candidates sharing that price out of all candidates. `Unpriced` counts candidates without a usable market quote, including unavailable or untradable results. Missing prices are not treated as zero and do not hide a valuable known candidate.
+The short summary shows the mean and highest quote among priced candidates, followed by priced candidates / all candidates. Equal prices appear only once. Summary amounts are rounded to one decimal place in one currency unit; individual candidate quotes retain their detailed amounts.
 
-- `Top candidate 1stx · 1/12 candidates · Unpriced 11`: one known valuable candidate; the other eleven have no usable quote.
-- `Top candidate 5le · 12/12 candidates`: all twelve candidates have a 5le quote.
+- `30le · 3/4`: three candidates at 30le, one without a usable quote.
+- `Avg 30le / Max 35le · 3/4`: the three priced candidates average 30le and reach 35le.
+- `Avg 5.3le / Max 1stx · 12/12`: mostly cheap candidates with one valuable outcome.
+- `1stx · 1/12`: only one candidate is priced; the other eleven remain unknown.
 
-These are candidate counts, not verified drop probabilities. The top quote is a candidate's typical identified asking price, not its best possible ID-roll price, an average return, or the unidentified item's sale price. Identification fees are not deducted. Unpriced candidates could be worth more or less than the known candidates.
+Missing prices are excluded from the mean, not treated as zero. The fraction is data coverage, not a drop probability. Quotes are typical identified asking prices, not best-roll values or the unidentified item's sale price. Identification fees are not deducted. Unknown candidates could be worth more or less, so a partial mean is not the whole item's expected return.
 
 ## Tooltip states
 
