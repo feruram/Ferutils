@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.9.7**
+Latest version: **0.9.8**
 
 ## Features
 
@@ -28,7 +28,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.9.7-windows-x64.zip` and `ferutils-0.9.7.jar`.
+2. Download `FerutilsApp-0.9.8-windows-x64.zip` and `ferutils-0.9.8.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
@@ -65,7 +65,7 @@ Japanese and English are included.
 
 The App creates this editable file on first launch:
 
-`Documents\Ferutils\settings\lootrun-strategy.toml`
+`FerutilsData\settings\lootrun-strategy.toml` beside `FerutilsApp.exe` (new installations).
 
 The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file from `Settings` → `Lootrun strategy`, then save. Schema 1 and 2 files are upgraded while keeping compatible settings.
 
@@ -85,7 +85,11 @@ See [Strategy file format](docs/STRATEGY_FORMAT.md).
 2. Extract the new App ZIP.
 3. Replace the old Mynntils or Ferutils jar in the `mods` folder.
 
-New installations use `Documents\Ferutils`. Existing Mynntils data folders and custom locations remain readable.
+New installations use `FerutilsData` beside `FerutilsApp.exe`. Existing data folders and custom locations are kept.
+
+Changing the data folder in Settings copies your data; restart to switch. The original files remain. Saves outside the data folder are not moved.
+
+In version 0.9.8 and later, select `Settings` → `Update` to download the latest stable App ZIP and strategy. Downloads are verified and saved in the data folder's `updates` directory. Close the App, extract the ZIP into a writable folder, then launch it. Select the downloaded strategy in Settings if wanted; your current strategy is not overwritten or switched automatically. The MOD is updated separately.
 
 ## Connection
 

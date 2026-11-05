@@ -39,7 +39,7 @@ Use the correction controls when a value could not be read. Use `Resume` when jo
 
 The editable strategy file is stored at:
 
-`Documents\Ferutils\settings\lootrun-strategy.toml`
+`FerutilsData\settings\lootrun-strategy.toml` beside `FerutilsApp.exe` (new installations).
 
 The complete latest strategy is bundled with the App and attached separately to each Release. Select another TOML file with `Settings` → `Lootrun strategy`, then save. `Open strategy` opens the selected file. Schema 1 and 2 files are upgraded while keeping compatible settings.
 
@@ -143,6 +143,11 @@ Save and restart the App and Minecraft after changing connection settings.
 - `Open strategy`: opens the selected strategy file
 - `Open folder`: opens the current data folder
 - `Back up`: creates an owned-item backup
+- `Update`: downloads the latest stable App ZIP and strategy, with SHA-256 verification
+
+Update downloads are stored in the data folder's `updates` directory. Close the App, extract the ZIP, and launch the new App. Select the downloaded strategy in Settings to use it; existing settings, inventory, and custom strategies are kept. The MOD is not downloaded by this button.
+
+New installations save data in `FerutilsData` beside the EXE. Existing locations are retained. Changing `Data folder` copies data and takes effect after restarting; the original files remain. JSON run saves directly inside the data folder are included, but externally saved files are not moved.
 
 ## If data does not update
 
