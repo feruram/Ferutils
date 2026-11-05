@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.10.0**
+Latest version: **0.10.1**
 
 ## Features
 
@@ -28,7 +28,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.10.0-windows-x64.zip` and `ferutils-0.10.0.jar`.
+2. Download `FerutilsApp-0.10.1-windows-x64.zip` and `ferutils-0.10.1.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
@@ -81,7 +81,7 @@ See [Strategy file format](docs/STRATEGY_FORMAT.md).
 
 ## Updating
 
-App and strategy updates have separate buttons in Settings. `Update App` downloads the App ZIP and keeps your saved settings. `Update strategy` downloads the latest standalone TOML beside the currently selected strategy and switches to it after validation. A modified file with the same name is never overwritten.
+App and strategy updates have separate buttons in Settings. `Update and restart` verifies the download, saves your run, replaces application files, and restarts automatically with saved settings and data. `Update strategy` downloads the latest standalone TOML beside the currently selected strategy and switches to it after validation. A modified file with the same name is never overwritten.
 
 1. Close the App and Minecraft.
 2. Extract the new App ZIP.
@@ -91,7 +91,7 @@ New installations use `FerutilsData` beside `FerutilsApp.exe`. Existing data fol
 
 Changing the data folder in Settings copies your data and switches the running App immediately. The original files remain. Saves outside the data folder are not moved. Connection and language changes still require a restart.
 
-App downloads are verified and saved in the data folder's `updates` directory. Close the App, extract the ZIP into a writable folder, then launch it. The MOD is updated separately.
+To upgrade from version 0.10.0 or earlier, extract the new App ZIP once. Later App updates need no manual extraction. Use a writable installation folder. The MOD is updated separately.
 
 ## Connection
 

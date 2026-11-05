@@ -6,7 +6,7 @@ Start Ferutils App before Minecraft. The mod cannot perform market analysis by i
 
 Ferutils 0.10.0 supports Wynntils 4.2.16 and keeps compatibility with 4.2.6 (Fabric, Minecraft 1.21.11).
 
-If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.10.0.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
+If Minecraft crashes with `LootrunModel.getBeacons()` / `NoSuchMethodError`, close Minecraft, remove the old Ferutils JAR from your profile's `mods` folder, and install `ferutils-0.10.1.jar` from the [latest release](https://github.com/feruram/Ferutils/releases/latest). Keep only one Ferutils JAR. No data reset is needed.
 
 ## Controls
 

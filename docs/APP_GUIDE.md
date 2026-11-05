@@ -143,10 +143,10 @@ Save and restart the App and Minecraft after changing connection settings.
 - `Open strategy`: opens the selected strategy file
 - `Open folder`: opens the current data folder
 - `Back up`: creates an owned-item backup
-- `Update App`: downloads the latest App ZIP, retaining saved settings and the current data folder
+- `Update and restart`: verifies and installs the latest App, saves and restores the run, and restarts automatically
 - `Update strategy`: downloads the latest standalone strategy beside the selected TOML and switches to it after validation
 
-App downloads are stored in the data folder's `updates` directory. Close the App, extract the ZIP, and launch the new App. Strategy updates keep the previous file; a modified file with the same name is not overwritten. Both downloads use SHA-256 verification. The MOD is updated separately.
+Upgrade from 0.10.0 or earlier by extracting the new ZIP once. Later updates need no manual extraction. The updater exchanges only the EXE and runtime folder, retaining user data. A failed replacement or exited new App restores the previous executable. If startup remains unconfirmed, recovery files remain in `.ferutils-update` beside the EXE; do not delete them. Successful-update temporary files are cleaned automatically. Strategy updates keep previous files and reject modified same-name files. Both downloads use SHA-256 verification. The MOD is updated separately.
 
 New installations save data in `FerutilsData` beside the EXE. Saved custom locations are retained. Changing `Data folder` copies data and switches the running App immediately; the original files remain. JSON run saves directly inside the data folder are included, but externally saved files are not moved.
 
