@@ -143,11 +143,12 @@ Save and restart the App and Minecraft after changing connection settings.
 - `Open strategy`: opens the selected strategy file
 - `Open folder`: opens the current data folder
 - `Back up`: creates an owned-item backup
-- `Update`: downloads the latest stable App ZIP and strategy, with SHA-256 verification
+- `Update App`: downloads the latest App ZIP, retaining saved settings and the current data folder
+- `Update strategy`: downloads the latest standalone strategy beside the selected TOML and switches to it after validation
 
-Update downloads are stored in the data folder's `updates` directory. Close the App, extract the ZIP, and launch the new App. Select the downloaded strategy in Settings to use it; existing settings, inventory, and custom strategies are kept. The MOD is not downloaded by this button.
+App downloads are stored in the data folder's `updates` directory. Close the App, extract the ZIP, and launch the new App. Strategy updates keep the previous file; a modified file with the same name is not overwritten. Both downloads use SHA-256 verification. The MOD is updated separately.
 
-New installations save data in `FerutilsData` beside the EXE. Existing locations are retained. Changing `Data folder` copies data and takes effect after restarting; the original files remain. JSON run saves directly inside the data folder are included, but externally saved files are not moved.
+New installations save data in `FerutilsData` beside the EXE. Saved custom locations are retained. Changing `Data folder` copies data and switches the running App immediately; the original files remain. JSON run saves directly inside the data folder are included, but externally saved files are not moved.
 
 ## If data does not update
 
