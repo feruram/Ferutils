@@ -2,7 +2,7 @@
 
 Ferutils is a Windows companion app and Fabric mod for Wynncraft.
 
-Latest version: **0.9.8**
+Latest version: **0.9.9**
 
 ## Features
 
@@ -28,7 +28,7 @@ Python, a Java development kit, and mod compilation are not required.
 ## Install
 
 1. Open the [latest release](https://github.com/feruram/Ferutils/releases/latest).
-2. Download `FerutilsApp-0.9.8-windows-x64.zip` and `ferutils-0.9.8.jar`.
+2. Download `FerutilsApp-0.9.9-windows-x64.zip` and `ferutils-0.9.9.jar`.
 3. Extract the App ZIP and start `FerutilsApp.exe`.
 4. Place the mod jar in `%appdata%\.minecraft\mods`. Remove an older Mynntils or Ferutils jar first.
 5. Start the App, then launch Minecraft.
@@ -81,6 +81,8 @@ See [Strategy file format](docs/STRATEGY_FORMAT.md).
 
 ## Updating
 
+App and standalone strategy versions are checked separately. `Settings` → `Update` downloads the latest standalone strategy even when the App is current. Select its TOML in Settings to activate it; your current strategy is not replaced automatically.
+
 1. Close the App and Minecraft.
 2. Extract the new App ZIP.
 3. Replace the old Mynntils or Ferutils jar in the `mods` folder.
@@ -89,7 +91,7 @@ New installations use `FerutilsData` beside `FerutilsApp.exe`. Existing data fol
 
 Changing the data folder in Settings copies your data; restart to switch. The original files remain. Saves outside the data folder are not moved.
 
-In version 0.9.8 and later, select `Settings` → `Update` to download the latest stable App ZIP and strategy. Downloads are verified and saved in the data folder's `updates` directory. Close the App, extract the ZIP into a writable folder, then launch it. Select the downloaded strategy in Settings if wanted; your current strategy is not overwritten or switched automatically. The MOD is updated separately.
+In version 0.9.9 and later, select `Settings` → `Update` to download the latest stable App ZIP and strategy. Downloads are verified and saved in the data folder's `updates` directory. Close the App, extract the ZIP into a writable folder, then launch it. Select the downloaded strategy in Settings if wanted; your current strategy is not overwritten or switched automatically. The MOD is updated separately.
 
 ## Connection
 
